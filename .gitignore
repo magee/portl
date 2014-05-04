@@ -1,3 +1,5 @@
 .meteor
 .idea
 admin
+meteor-deploy.sh
+*.tgz
