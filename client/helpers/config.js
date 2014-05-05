@@ -2,5 +2,8 @@
  * Created by mageemooney on 5/4/14.
  */
 Accounts.ui.config({
-  passwordSignupFields: 'USERNAME_ONLY'
+  requestOfflineToken: {
+    google: true
+  },
+  passwordSignupFields: 'USERNAME_AND_OPTIONAL_EMAIL'
 });
