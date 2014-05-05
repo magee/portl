@@ -1,8 +1,12 @@
-<template name="productItem">
-    <div class="post">
-        <div class="post-content">
-             <h3><a href="{{url}}">{{title}}</a><span>{{domain}}</span></h3>
+<template name='productItem'>
+    <div class='post'>
+        <div class='post-content'>
+            <h3><a href='{{url}}'>{{title}}</a><span>{{domain}}</span></h3>
+            <p>
+                submitted by {{ author }}
+                {{#if ownsProduct}}<a href="{{pathFor 'productEdit'}}">Edit</a>{{/if}}
+            </p>
         </div>
-        <a href="{{pathFor 'productPage'}}" class="discuss bin">Discuss</a>
+        <a href="{{pathFor 'productPage'}}" class='discuss bin'>Discuss</a>
     </div>
 </template>
