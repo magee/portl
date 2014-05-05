@@ -8,6 +8,7 @@ Template.productItem.helpers({
     return a.hostname;
   },
   ownsProduct: function() {
+    //TODO: debug.  when logged out, this toggles edit to show for non-owned
     return this.userId == Meteor.userId();
   }
 });
