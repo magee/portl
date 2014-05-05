@@ -14,6 +14,7 @@ Tinytest.addAsync('Errors template works', function (test, done) {
   Errors.throw('A new error!');
   test.equal(Errors.collection.find({seen: false}).count(), 1);
 
+  //TODO: research OnscreenDiv and current way of handling this
   OnscreenDiv(Spark.render(function () {
     return Template.meteorErrors();
   }));
