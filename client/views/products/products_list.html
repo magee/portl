@@ -1,7 +1,11 @@
 <template name="productsList">
+    {{ #if currentUser }}
     <div class="posts">
         {{#each products}}
           {{> productItem}}
         {{/each}}
     </div>
+    {{ else }}
+    <h1>Tog + Porter Stylist Portal</h1>
+    {{/if }}
 </template>

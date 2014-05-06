@@ -34,7 +34,7 @@ Meteor.methods({
     }
 
     var product = _.extend(_.pick(productAttributes, 'url', 'title', 'description'), {
-      title     : productAttributes.title + (this.isSimulation? '(client' : '(server'),
+      title     : productAttributes.title,
       userId    : user._id,
       author    : user.username,
       submitted : new Date().getTime()

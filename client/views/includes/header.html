@@ -1,22 +1,35 @@
 <template name="header">
-    <header class="navbar">
-        <div class="navbar-inner">
-            <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </a>
-            <a class="brand" href="{{pathFor 'productsList'}}">Portl</a>
-            <div class="nav-collapse collapse">
-                <ul class="nav">
+    <nav class="navbar navbar-default" role="navigation">
+        <div class="container-fluid">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="{{pathFor 'productsList'}}">Portl</a>
+
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav">
                     {{ #if currentUser }}
-                        <li><a href="{{pathFor 'productSubmit'}}">New</a></li>
+                        <li><a class="active" href="{{pathFor 'productSubmit'}}">New</a></li>
                     {{ /if }}
                 </ul>
-                <ul class="nav pull-right">
-                    <li>{{> loginButtons }}</li>
+                <ul class="nav navbar-nav navbar-right">
+                    <li class="dropdown dropdown-toggle" data-toggle="dropdown">{{> loginButtons }}</li>
+                    <li class="dropdown">
+                        <!--<a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <b class="caret"></b></a>-->
+                        <ul class="nav pull-right dropdown-menu">
+                            <li>{{> loginButtons }}</li>
+                        </ul>
+                    </li>
                 </ul>
-            </div>
-        </div>
-    </header>
+            </div><!-- /.navbar-collapse -->
+        </div><!-- /.container-fluid -->
+    </nav>
 </template>

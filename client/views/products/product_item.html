@@ -1,7 +1,7 @@
 <template name='productItem'>
     <div class='post'>
         <div class='post-content'>
-            <h3><a href='{{url}}'>{{title}}</a><span>{{domain}}</span></h3>
+            <h3><a href='{{url}}'>{{title}}</a><span>{{sku}}</span></h3>
             <p>
                 submitted by {{ author }}
                 {{#if ownsProduct}}<a href="{{pathFor 'productEdit'}}">Edit</a>{{/if}}
