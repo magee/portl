@@ -1,16 +1,51 @@
 <template name='productEdit'>
     <form class='main'>
         <div class='control-group'>
-            <label class='control-label' for='url'>URL</label>
+            <label class='control-label' for='family'>Family</label>
             <div class='controls'>
-                <input name='url' type='text' value='{{ url }}' placeholder='Your URL'/>
+                <input name='family' type='text' value='{{ family }}' placeholder='product family'/>
             </div>
         </div>
-        
+
         <div class='control-group'>
-            <label class='control-label' for='title'>Title</label>
+            <label class='control-label' for='title'>Product Name</label>
             <div class='controls'>
-                <input name='title' type='text' value='{{ title }}' placeholder='Product Name'/>
+                <input name='title' type='text' value='{{ title }}' placeholder='product name'/>
+            </div>
+        </div>
+
+        <div class='control-group'>
+            <label class='control-label' for='product_type'>Type</label>
+            <div class='controls'>
+                <input name='product_type' type='text' value='{{ productType }}' placeholder='product type'/>
+            </div>
+        </div>
+
+        <div class='control-group'>
+            <label class='control-label' for='vendor'>Vendor</label>
+            <div class='controls'>
+                <input name='vendor' type='text' value='{{ vendor }}' placeholder='vendor'/>
+            </div>
+        </div>
+
+        <div class='control-group'>
+            <label class='control-label' for='season'>Season</label>
+            <div class='controls'>
+                <input name='season' type='text' value='{{ season }}' placeholder='season'/>
+            </div>
+        </div>
+
+        <div class='control-group'>
+            <label class='control-label' for='cost'>Cost</label>
+            <div class='controls'>
+                <input name='cost' type='text' value='{{ cost }}' placeholder='cost'/>
+            </div>
+        </div>
+
+        <div class='control-group'>
+            <label class='control-label' for='price'>Price</label>
+            <div class='controls'>
+                <input name='price' type='text' value='{{ price }}' placeholder='price'/>
             </div>
         </div>
 

@@ -8,8 +8,13 @@ Template.productEdit.events({
     var currentProductId = this._id;
 
     var productProperties = {
-      url   : $(e.target).find('[name=url]').val(),
-      title : $(e.target).find('[name=title]').val()
+      family        : $(e.target).find('[name=family]').val(),
+      title         : $(e.target).find('[name=title]').val(),
+      vendor        : $(e.target).find('[name=vendor]').val(),
+      productType   : $(e.target).find('[name=productType]').val(),
+      season        : $(e.target).find('[name=season]').val(),
+      cost          : $(e.target).find('[name=cost]').val(),
+      price         : $(e.target).find('[name=price]').val()
     };
 
     Products.update(currentProductId, {$set: productProperties}, function (error) {
