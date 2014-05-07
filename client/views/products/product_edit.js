@@ -11,7 +11,7 @@ Template.productEdit.events({
       family        : $(e.target).find('[name=family]').val(),
       title         : $(e.target).find('[name=title]').val(),
       vendor        : $(e.target).find('[name=vendor]').val(),
-      productType   : $(e.target).find('[name=productType]').val(),
+      product_type  : $(e.target).find('[name=product_type]').val(),
       season        : $(e.target).find('[name=season]').val(),
       cost          : $(e.target).find('[name=cost]').val(),
       price         : $(e.target).find('[name=price]').val()
