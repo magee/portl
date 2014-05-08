@@ -3,3 +3,6 @@
 admin
 meteor-deploy.sh
 *.tgz
+settings.json
+client/view/shopify*
+
