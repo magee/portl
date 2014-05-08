@@ -12,3 +12,4 @@ Template.productItem.helpers({
     return this.userId == Meteor.userId();
   }
 });
+

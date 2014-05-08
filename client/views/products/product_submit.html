@@ -1,23 +1,54 @@
 <template name='productSubmit'>
     <form class='main'>
         <div class='control-group'>
-            <label class='control-label' for='url'>URL</label>
+            <label class='control-label' for='family'>Family</label>
             <div class='controls'>
-                <input name='url' type='text' value='' placeholder='Your URL'/>
+                <input name='family' type='text' value='' placeholder='product family'/>
             </div>
         </div>
+
         <div class='control-group'>
-            <label class='control-label' for='title'>Title</label>
+            <label class='control-label' for='title'>Product Name</label>
             <div class='controls'>
-                <input type='text' value='' placeholder='Name your product' name='title'/>
+                <input name='title' type='text' value='' placeholder='product name'/>
             </div>
         </div>
+
         <div class='control-group'>
-            <label class='control-label' for='description'>Description</label>
+            <label class='control-label' for='product_type'>Type</label>
             <div class='controls'>
-                <textarea name='description' type='text' value=''></textarea>
+                <input name='product_type' type='text' value='' placeholder='product type'/>
             </div>
         </div>
+
+        <div class='control-group'>
+            <label class='control-label' for='vendor'>Vendor</label>
+            <div class='controls'>
+                <input name='vendor' type='text' value='' placeholder='vendor'/>
+            </div>
+        </div>
+
+        <div class='control-group'>
+            <label class='control-label' for='season'>Season</label>
+            <div class='controls'>
+                <input name='season' type='text' value='' placeholder='season'/>
+            </div>
+        </div>
+
+        <div class='control-group'>
+            <label class='control-label' for='cost'>Cost</label>
+            <div class='controls'>
+                <input name='cost' type='text' value='' placeholder='cost'/>
+            </div>
+        </div>
+
+        <div class='control-group'>
+            <label class='control-label' for='price'>Price</label>
+            <div class='controls'>
+                <input name='price' type='text' value='' placeholder='price'/>
+            </div>
+        </div>
+
         <div class='control-group'>
             <div class='controls'>
                 <input type='submit' value='Submit' class='btn btn-primary'/>

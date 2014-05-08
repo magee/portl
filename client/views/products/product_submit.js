@@ -5,8 +5,6 @@ Template.productSubmit.events({
    'submit form': function (e) {
      e.preventDefault();
 
-     var shopifyID;
-
      var product = {
        family        : $(e.target).find('[name=family]').val(),
        title         : $(e.target).find('[name=title]').val(),
@@ -17,40 +15,52 @@ Template.productSubmit.events({
        price         : $(e.target).find('[name=price]').val()
      };
 
-     saveProduct(product);
+     var APIRequest = {
+       verb   : 'POST',
+       URL    : '/admin/products.json',
+       data   : product,
+       cb     : saveProduct
+     };
 
+     Meteor.call('callShopifyAPI', APIRequest);
    }
 });
 
-var saveProduct = function (product) {
-  //TODO: check header from Shopify to make sure we haven't exceeded API call limit.
-  // 2/sec with occasional burst to 40.  Bucket algorithm with 40 slots
+//product
+//statusCode
+//data
 
-  var shopifyID;
+//TODO: _.omit() items from results.data to remove unnecessary redundancy
+//TODO:  Tired and this may be a hot mess.  Review.  Refactor.
+//TODO abstract the API call to be used for any Shopify interactions
+//TODO: check header from Shopify to make sure we haven't exceeded API call limit.
+// 2/sec with occasional burst to 40.  Bucket algorithm with 40 slots
 
-  // Add Shopify's 'handle' key-value pair.  Shopify's 'handle' == T+P's 'family';
-  var product = _.extend(product, {'handle': product.family});
+// callback function passed to callShopifyAPI for execution when API call is done.
+var saveProduct = function(err, res) {
 
-  //Meteor.http.post('https://apikey:password@hostname/admin/resource.json', function(error, result) {
-    var newProduct = {};
-    if (result.statusCode === 201) {
-      newProduct = _.extend(product, {'shopifyData': result.data.product});
+  //TODO: double-check the payload returned from Shopify
+  if (res.statusCode === 201 || res.status === 201) {
 
-      Meteor.call('post', newProduct, function(error, id) {
-        if (error) {
-          Errors.throw(error.reason);
-        }
-        if (error.error === 302) {
-          Router.go('productPage', {_id: error.details});
-        } else {
-          Router.go('productPage', {_id: id});
-        }
-      });
-    } else {
-      //TODO add error handling - consider storing in-progress product data in a collection
-      //Router.go('shopifyFail');
-      //
-      console.log(result.data);
-    }
-  });
+    var newProduct = _.extend(product, {'shopifyData': res.data.product});
+
+    Meteor.call('post', newProduct, function (err, id) {
+      if (error) {
+        return alert(error.reason);
+
+        Router.go('productPage', {_id: id});
+      }
+    });
+
+  } else {
+    //TODO add error handling - this won'd do for production
+    Router.go('productsList');
+  }
 };
+
+//  // Add Shopify's 'handle' key-value pair.  Shopify's 'handle' == T+P's 'family';
+//  //Meteor.http.post('https://apikey:password@hostname/admin/resource.json', function(error, result) {
+//  Meteor.http.post('https://34ee97a52be63ca905837d1b6115fb3f:e943c85c4f6601ed21cbc6f8f3d5e032@tog-porter.myshopify.com/admin/products.json',
+//                                {data: product},saveProductToo(error, result)
+//  );
+//};
