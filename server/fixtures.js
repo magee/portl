@@ -4,11 +4,29 @@
 
 Meteor.startup(function () {
   if (Products.find().count() === 0) {
-    Products.insert({"family": "08-1300-90021-1", "vendor": "90021", "title": "Boatneck Tunic Sweater", "product_type": "Sweaters", "cost": "0", "price": "69", "userId" : "kxaTiFNwQL2MhugFQ", "archive": "TRUE", "variants": []});
-    Products.insert({"family": "08-1300-90021-2", "vendor": "90021", "title": "Boyfriend Sweater", "product_type": "Sweaters", "cost": "0", "price": "69", "userId" : "kxaTiFNwQL2MhugFQ", "archive": "TRUE", "variants": []});
-    Products.insert({"family": "08-1300-90021-3", "vendor": "90021", "title": "Colorblock Boyfriend Sweater", "product_type": "Sweaters", "cost": "0", "price": "79", "userId" : "kxaTiFNwQL2MhugFQ", "archive": "TRUE", "variants": []});
+    var now = new Date().getTime();
+
+    var author = Meteor.users.findOne();
+//    product1Id = 'dtBYZ6ThS8qDqf6iA';
+//    product2Id = 'SQP27euZtg4yuDctN';
+//    product3Id = 'zmZ668Dt9ixYJ6v9a';
+    var product1Id = Products.insert({"family": "08-1300-90021-1", "vendor": "90021", "title": "Boatneck Tunic Sweater", "product_type": "Sweaters", "cost": "0", "price": "69", "userId" : "kxaTiFNwQL2MhugFQ", "archive": "TRUE", "variants": []});
+      Variants.insert({'productId': product1Id, 'sku': '08-1300-90021-1-CRM-6',  'color': 'cream', 'size': '6', 'qty': 10});
+      Variants.insert({'productId': product1Id, 'sku': '08-1300-90021-1-CRM-8',  'color': 'cream', 'size': '8', 'qty': 10});
+      Variants.insert({'productId': product1Id, 'sku': '08-1300-90021-1-CRM-10', 'color': 'cream', 'size': '10', 'qty': 10});
+      Variants.insert({'productId': product1Id, 'sku': '08-1300-90021-1-BLU-6',  'color': 'blue', 'size': '6', 'qty': 10});
+      Variants.insert({'productId': product1Id, 'sku': '08-1300-90021-1-BLU-8',  'color': 'blue', 'size': '8', 'qty': 10});
+      Variants.insert({'productId': product1Id, 'sku': '08-1300-90021-1-BLU-10', 'color': 'blue', 'size': '10', 'qty': 10});
+    var product2Id = Products.insert({"family": "08-1300-90021-2", "vendor": "90021", "title": "Boyfriend Sweater", "product_type": "Sweaters", "cost": "0", "price": "69", "userId" : "kxaTiFNwQL2MhugFQ", "archive": "TRUE", "variants": []});
+      Variants.insert({'productId': product2Id, 'sku': '08-1300-90021-2-RED-S',  'color': 'red', 'size': 'S', 'qty': 10});
+      Variants.insert({'productId': product2Id, 'sku': '08-1300-90021-2-RED-M',  'color': 'red', 'size': 'M', 'qty': 10});
+      Variants.insert({'productId': product2Id, 'sku': '08-1300-90021-2-RED-L',  'color': 'red', 'size': 'L', 'qty': 10});
+    var product3Id = Products.insert({"family": "08-1300-90021-3", "vendor": "90021", "title": "Colorblock Boyfriend Sweater", "product_type": "Sweaters", "cost": "0", "price": "79", "userId" : "kxaTiFNwQL2MhugFQ", "archive": "TRUE", "variants": []});
+      Variants.insert({'productId': product3Id, 'sku': '08-1300-90021-3-B/W-S',  'color': 'black, white', 'size': 'S', 'qty': 10});
+      Variants.insert({'productId': product3Id, 'sku': '08-1300-90021-3-B/W-M',  'color': 'black, white', 'size': 'M', 'qty': 10});
+      Variants.insert({'productId': product3Id, 'sku': '08-1300-90021-3-B/W-L',  'color': 'black, white', 'size': 'L', 'qty': 10});
     Products.insert({"family": "09-1300-90021-4", "vendor": "90021", "title": "CrossBack Top", "product_type": "Tops", "cost": "0", "price": "42", "userId" : "kxaTiFNwQL2MhugFQ", "archive": "TRUE", "variants": []});
-    Products.insert({"family": "08-1300-90021-5", "vendor": "90021", "title": "Cutout Boyfriend Sweater", "product_type": "Sweaters", "cost": "0", "price": "69", "userId" : "kxaTiFNwQL2MhugFQ", "archive": "TRUE", "variants": []});
+/*    Products.insert({"family": "08-1300-90021-5", "vendor": "90021", "title": "Cutout Boyfriend Sweater", "product_type": "Sweaters", "cost": "0", "price": "69", "userId" : "kxaTiFNwQL2MhugFQ", "archive": "TRUE", "variants": []});
     Products.insert({"family": "09-1300-90021-6", "vendor": "90021", "title": "Drawstring Knit Tunic", "product_type": "Tops", "cost": "0", "price": "59", "userId" : "kxaTiFNwQL2MhugFQ", "archive": "TRUE", "variants": []});
     Products.insert({"family": "03-1300-90021-7", "vendor": "90021", "title": "Drawstring Tunic", "product_type": "Dresses", "cost": "0", "price": "59", "userId" : "kxaTiFNwQL2MhugFQ", "archive": "TRUE", "variants": []});
     Products.insert({"family": "09-1300-90021-8", "vendor": "90021", "title": "Laser Cut Back Top", "product_type": "Tops", "cost": "13.75", "price": "42", "userId" : "kxaTiFNwQL2MhugFQ", "archive": "TRUE", "variants": []});
@@ -2193,6 +2211,7 @@ Meteor.startup(function () {
     Products.insert({"family": "09-14NS-DEPHL-3", "vendor": "DEPHL", "title": "Double Layer Tank", "product_type": "Tops ", "cost": "0", "price": "0", "userId" : "kxaTiFNwQL2MhugFQ", "archive": "TRUE", "variants": []});
     Products.insert({"family": "03-14SU-ELLSN-47", "vendor": "ELLSN", "title": "Lucy Dress", "product_type": "Dresses ", "cost": "0", "price": "0", "userId" : "kxaTiFNwQL2MhugFQ", "archive": "TRUE", "variants": []});
     Products.insert({"family": "09-14NS-ELLSN-11", "vendor": "ELLSN", "title": "Chambray Top", "product_type": "Tops ", "cost": "0", "price": "0", "userId" : "kxaTiFNwQL2MhugFQ", "archive": "TRUE", "variants": []});
+ */
   }
 });
 
