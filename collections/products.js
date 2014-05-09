@@ -1,6 +1,14 @@
 /**
  * Created by mageemooney on 5/4/14.
  */
+/*
+ * Products are the generic product description that is not size/color specific.
+ * A product contains attributes that are common to all products of their type
+ * Variants are the actual products describingspecific combinations of attributes.
+ *
+ * Example:  Product:  Striped seersucker suit
+ *           Variants:   blue/6, blue/8, blue/10, cream/6, cream/12, etc.
+ */
 ////TODO: don't pull data over the wire if people are just visiting static content
 //if (this.userId) {
 //  Products = new Meteor.Collection('products');
@@ -21,7 +29,6 @@
     remove: ownsDocument
   });
 
-if (Meteor.isServer) {
   Meteor.methods({
     post: function(productAttributes) {
       var user = Meteor.user(),
@@ -43,7 +50,7 @@ if (Meteor.isServer) {
       var product = _.extend(productAttributes, {
         userId    : user._id,
         author    : user.username,
-        submitted : new Date().getTime()
+        createdAt : new Date().getTime()
       });
 
       var productID = Products.insert(product);
@@ -51,4 +58,3 @@ if (Meteor.isServer) {
       return productID;
     }
   });
-}

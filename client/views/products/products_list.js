@@ -4,6 +4,6 @@
 
 Template.productsList.helpers({
   products: function() {
-    return Products.find({}, {sort: {submitted: -1}});
+    return Products.find();
   }
 });

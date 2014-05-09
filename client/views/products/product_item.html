@@ -1,10 +1,10 @@
 <template name='productItem'>
-    <div class='post'>
-        <div class='post-content'>
-            <h3><a href='{{url}}'>{{title}}</a><span>{{sku}}</span></h3>
-            <p>{{#if ownsProduct}}<a href="{{pathFor 'productEdit'}}">Edit</a>{{/if}}
-            </p>
+    <div class='product'>
+        <div class='product-content'>
+            <h3>{{title}} <span>( {{family}} )</span></h3>
+            <a href="{{pathFor 'productPage'}}">  {{ variantsCount }} variants</a>
         </div>
-        <a href="{{pathFor 'productPage'}}" class='discuss btn'>Discuss</a>
+        <!--TODO: Add roles-based access to edit option-->
+        <a href="{{pathFor 'productEdit'}}" class='discuss btn'>Edit</a> <a href="{{pathFor 'productPage'}}" class='discuss btn'>View</a>
     </div>
 </template>

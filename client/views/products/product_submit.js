@@ -15,20 +15,30 @@ Template.productSubmit.events({
        price         : $(e.target).find('[name=price]').val()
      };
 
-     var APIRequest = {
-       verb   : 'POST',
-       URL    : '/admin/products.json',
-       data   : product,
-       cb     : saveProduct
-     };
+//     var APIRequest = {
+//       verb   : 'POST',
+//       URL    : '/admin/products.json',
+//       data   : product,
+//       cb     : saveProduct
+//     };
+//
+//     Meteor.call('callShopifyAPI', APIRequest);
+     Meteor.call('post', product, function(error, id) {
+        if (error) {
+          throwError(error.reason);
 
-     Meteor.call('callShopifyAPI', APIRequest);
+          if (error.error === 302) {
+            Router.go('productPage', {_id: error.details});
+          }
+        } else {
+          Router.go('productPage', {_id: id});
+        }
+     });
    }
 });
 
-//product
-//statusCode
-//data
+
+/*
 
 //TODO: _.omit() items from results.data to remove unnecessary redundancy
 //TODO:  Tired and this may be a hot mess.  Review.  Refactor.
@@ -57,6 +67,7 @@ var saveProduct = function(err, res) {
     Router.go('productsList');
   }
 };
+*/
 
 //  // Add Shopify's 'handle' key-value pair.  Shopify's 'handle' == T+P's 'family';
 //  //Meteor.http.post('https://apikey:password@hostname/admin/resource.json', function(error, result) {

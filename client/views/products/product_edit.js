@@ -19,7 +19,7 @@ Template.productEdit.events({
 
     Products.update(currentProductId, {$set: productProperties}, function (error) {
        if (error) {
-         alert(error.reason);
+         throwError(error.reason);
        } else {
          Router.go('productPage', {_id: currentProductId});
        }
