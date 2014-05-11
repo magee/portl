@@ -1,9 +1,16 @@
 <template name="productsList">
     {{ #if currentUser }}
+    <p>Product Count: {{ getProductCount }}</p>
     <div class="products">
         {{#each products}}
           {{> productItem}}
         {{/each}}
+    </div>
+    <div>
+        <ul class="pager">
+            <li class="previous"><a href="#" disabled={{ prevText.begin }}>{{ prevText.text }}</a></li>
+            <li class="next"><a href="#" disabled={{ nextText.end }}>{{ nextText.text }}</a></li>
+        </ul>
     </div>
     {{ else }}
     <h1>Tog + Porter Stylist Portal</h1>
