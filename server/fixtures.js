@@ -26,7 +26,7 @@ Meteor.startup(function () {
       Variants.insert({'productId': product3Id, 'sku': '08-1300-90021-3-B/W-M',  'color': 'black, white', 'size': 'M', 'qty': 10});
       Variants.insert({'productId': product3Id, 'sku': '08-1300-90021-3-B/W-L',  'color': 'black, white', 'size': 'L', 'qty': 10});
     Products.insert({"family": "09-1300-90021-4", "vendor": "90021", "title": "CrossBack Top", "product_type": "Tops", "cost": "0", "price": "42", "userId" : "kxaTiFNwQL2MhugFQ", "archive": "TRUE", "variants": []});
-/*    Products.insert({"family": "08-1300-90021-5", "vendor": "90021", "title": "Cutout Boyfriend Sweater", "product_type": "Sweaters", "cost": "0", "price": "69", "userId" : "kxaTiFNwQL2MhugFQ", "archive": "TRUE", "variants": []});
+    Products.insert({"family": "08-1300-90021-5", "vendor": "90021", "title": "Cutout Boyfriend Sweater", "product_type": "Sweaters", "cost": "0", "price": "69", "userId" : "kxaTiFNwQL2MhugFQ", "archive": "TRUE", "variants": []});
     Products.insert({"family": "09-1300-90021-6", "vendor": "90021", "title": "Drawstring Knit Tunic", "product_type": "Tops", "cost": "0", "price": "59", "userId" : "kxaTiFNwQL2MhugFQ", "archive": "TRUE", "variants": []});
     Products.insert({"family": "03-1300-90021-7", "vendor": "90021", "title": "Drawstring Tunic", "product_type": "Dresses", "cost": "0", "price": "59", "userId" : "kxaTiFNwQL2MhugFQ", "archive": "TRUE", "variants": []});
     Products.insert({"family": "09-1300-90021-8", "vendor": "90021", "title": "Laser Cut Back Top", "product_type": "Tops", "cost": "13.75", "price": "42", "userId" : "kxaTiFNwQL2MhugFQ", "archive": "TRUE", "variants": []});
@@ -110,7 +110,7 @@ Meteor.startup(function () {
     Products.insert({"family": "09-1300-ALTAP-42", "vendor": "ALTAP", "title": "Meegs Racer Tank", "product_type": "Tops", "cost": "11", "price": "24", "userId" : "kxaTiFNwQL2MhugFQ", "archive": "TRUE", "variants": []});
     Products.insert({"family": "09-1300-ALTAP-43", "vendor": "ALTAP", "title": "Meegs Tank", "product_type": "Tops", "cost": "11", "price": "26", "userId" : "kxaTiFNwQL2MhugFQ", "archive": "TRUE", "variants": []});
     Products.insert({"family": "09-1300-ALTAP-44", "vendor": "ALTAP", "title": "Morning Glory", "product_type": "Tops", "cost": "0", "price": "49", "userId" : "kxaTiFNwQL2MhugFQ", "archive": "TRUE", "variants": []});
-    Products.insert({"family": "09-1300-ALTAP-45", "vendor": "ALTAP", "title": "Moroccan Tank", "product_type": "Tops", "cost": "9", "price": "24", "userId" : "kxaTiFNwQL2MhugFQ", "archive": "TRUE", "variants": []});
+/*    Products.insert({"family": "09-1300-ALTAP-45", "vendor": "ALTAP", "title": "Moroccan Tank", "product_type": "Tops", "cost": "9", "price": "24", "userId" : "kxaTiFNwQL2MhugFQ", "archive": "TRUE", "variants": []});
     Products.insert({"family": "09-1300-ALTAP-46", "vendor": "ALTAP", "title": "Noc Boyfriend Tee", "product_type": "Tops", "cost": "0", "price": "50", "userId" : "kxaTiFNwQL2MhugFQ", "archive": "TRUE", "variants": []});
     Products.insert({"family": "09-1300-ALTAP-47", "vendor": "ALTAP", "title": "Nova Tank", "product_type": "Tops", "cost": "0", "price": "34", "userId" : "kxaTiFNwQL2MhugFQ", "archive": "TRUE", "variants": []});
     Products.insert({"family": "09-1300-ALTAP-48", "vendor": "ALTAP", "title": "Oceana Tank", "product_type": "Tops", "cost": "0", "price": "44", "userId" : "kxaTiFNwQL2MhugFQ", "archive": "TRUE", "variants": []});
