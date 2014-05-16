@@ -3,6 +3,7 @@
  */
 Template.productItem.helpers({
   ownsProduct: function() {
+    // TODO: change to roles-based access rather than ownership-based
     return this.userId == Meteor.userId();
   },
 

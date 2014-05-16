@@ -25,36 +25,7 @@
 
   //TODO add second allow callback to check if user is admin to allow edits (pg 137)
   Products.allow({
-    update: ownsDocument,
-    remove: ownsDocument
+//    update: ownsDocument,
+//    remove: ownsDocument
   });
 
-  Meteor.methods({
-    post: function(productAttributes) {
-      var user = Meteor.user(),
-          productWithSameFamily = Products.findOne({ family: productAttributes.family });
-
-      if (!user) {
-        //TODO Find out where these errors are caught.
-        throw new Meteor.Error(401, 'You must be logged in to create new products.');
-      }
-
-      if (!productAttributes.title) {
-        throw new Meteor.Error(422, 'A Product title is required');
-      }
-
-      if (productAttributes.family && productWithSameFamily) {
-        throw new Meteor.Error(302, 'This product has already been created', productWithSameFamily._id);
-      }
-
-      var product = _.extend(productAttributes, {
-        userId    : user._id,
-        author    : user.username,
-        createdAt : new Date().getTime()
-      });
-
-      var productID = Products.insert(product);
-
-      return productID;
-    }
-  });

@@ -1,0 +1,57 @@
+<template name='variantEdit'>
+    <form class='main'>
+        <div class='control-group'>
+            <label class='control-label' for='sku'>SKU</label>
+            <div class='controls'>
+                <input name='sku' type='text' value='{{ sku }}' placeholder='product SKU'/>
+            </div>
+        </div>
+
+        <div class='control-group'>
+            <label class='control-label' for='title'>Variant Name</label>
+            <div class='controls'>
+                <input name='title' disabled=true size="75" type='text' value='{{ title }}' placeholder='variant name'/>
+            </div>
+        </div>
+
+        <div class='control-group'>
+            <label class='control-label' for='color'>Color</label>
+            <div class='controls'>
+                <input name='color' type='text' value='{{ color }}' placeholder='color'/>
+            </div>
+        </div>
+
+        <div class='control-group'>
+            <label class='control-label' for='size'>Size</label>
+            <div class='controls'>
+                <input name='size' type='text' value='{{ size }}' placeholder='size'/>
+            </div>
+        </div>
+
+        <div class='control-group'>
+            <label class='control-label' for='cost'>Cost</label>
+            <div class='controls'>
+                <input name='cost' type='text' value='{{ cost }}' placeholder='cost'/>
+            </div>
+        </div>
+
+        <div class='control-group'>
+            <label class='control-label' for='price'>Price</label>
+            <div class='controls'>
+                <input name='price' type='text' value='{{ price }}' placeholder='price'/>
+            </div>
+        </div>
+
+        <div class='control-group'>
+            <div class='controls'>
+                <input type='submit' value='Submit' class='btn btn-primary submit'/>
+            </div>
+        </div>
+
+        <div class='control-group'>
+            <div class='controls'>
+                <a class='btn btn-danger delete' href='#'>Delete Variant</a>
+            </div>
+        </div>
+    </form>
+</template>
