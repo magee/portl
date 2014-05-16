@@ -10,15 +10,3 @@
     </div>
 </template>
 
-<!-- Item details for product page -->
-<!-- TODO:  Differentiate this page from the simple list details -->
-<template name='productDetails'>
-    <div class='product'>
-        <div class='product-content'>
-            <h3>{{title}} <span>( {{family}} )</span></h3>
-            <a href="{{pathFor 'productPage'}}">  {{ variantsCount }} variants</a>
-        </div>
-        <!--TODO: Add roles-based access to edit option-->
-        <a href="{{pathFor 'productEdit'}}" class='discuss btn'>Edit</a> <a href="{{pathFor 'productPage'}}" class='discuss btn'>View</a>
-    </div>
-</template>

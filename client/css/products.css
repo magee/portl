@@ -1,5 +1,12 @@
 .products {
-  height    : 600px;
-  overflow-x: hidden;
+  height        : 600px;
+  overflow-x    : hidden;
+}
+.product .label {
+  color         : darkslategray;
+  display       : inline-block;
+  width         : 75px;
+  text-align    : left;
+  padding-left  : 10px;
 }
 

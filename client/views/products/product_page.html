@@ -1,5 +1,16 @@
 <template name="productPage">
-    {{> productDetails}}
+    <div class='product'>
+        <div class=''>
+            <h3 id="productTitle">{{title}} </h3>
+            <div><span class="label">sku prefix:</span> <span id="productFamily">{{ family }}</span></div>
+            <div><span class="label">vendor:</span> <span id="productVendor">{{ vendor }}</span></div>
+            <div><span class="label">season:</span> <span id="productSeason">{{ season }}</span></div>
+            <div><span class="label">notes:</span> <span id="productNotes">{{ productNotes }}</span></div>
+        </div>
+        <!-- TODO: Add roles-based access to edit option-->
+        <!-- TODO: Move edit controls to bottom of page -->
+        <a href="{{pathFor 'productEdit'}}" class='discuss btn'>Edit</a> <a href="{{pathFor 'productPage'}}" class='discuss delete btn'>Delete</a>
+    </div>
 
     <ul class="variants">
         {{#each variants }}
