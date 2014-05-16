@@ -17,16 +17,16 @@ Template.productsList.helpers({
   },
   nextText: function() {
     if (this.products && this.products.count() < Session.get('pageSize')) {
-      return {end: true, text: ''};
+      return {showClass: 'hidden', end: true, text: ''};
     }
-    return {end: false, text: (Number(Session.get('productCursor')) + Session.get('pageSize')) + ' - ' + (Number(Session.get('productCursor')) + (2 * Session.get('pageSize')))};
+    return {showClass: '', end: false, text: (Number(Session.get('productCursor')) + Session.get('pageSize')) + ' - ' + (Number(Session.get('productCursor')) + (2 * Session.get('pageSize')))};
   },
   prevText: function() {
     if (Session.get('productCursor') < Session.get('pageSize')) {
       //TODO disable button instead
-      return {begin: true, text: ''};
+      return {showClass: 'hidden', begin: true, text: ''};
     }
-    return {begin: false, text: (Number(Session.get('productCursor')) - Session.get('pageSize')) + ' - ' + (Number(Session.get('productCursor')))};
+    return {showClass: '', begin: false, text: (Number(Session.get('productCursor')) - Session.get('pageSize')) + ' - ' + (Number(Session.get('productCursor')))};
   }
 });
 
