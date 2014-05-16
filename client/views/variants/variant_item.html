@@ -1,3 +1,4 @@
+<!-- Item template for variants list page -->
 <template name="variantItem">
     <li>
         <h4>
@@ -8,4 +9,16 @@
         <span class="qty">quantity: {{ qty }}</span>
         <span><a href="{{pathFor 'variantEdit'}}" class='discuss btn'>Edit</a> <a href="{{pathFor 'variantPage'}}" class='discuss btn'>View</a></span>
     </li>
+</template>
+
+<!-- Item details for variant page -->
+<!-- TODO:  Differentiate this page from the simple list details -->
+<template name='variantDetails'>
+    <div class='product'>
+        <div class='product-content'>
+            <h3>{{title}} <span>( {{ sku }} )</span></h3>
+        </div>
+        <!--TODO: Add roles-based access to edit option-->
+        <a href="{{pathFor 'variantEdit'}}" class='discuss btn'>Edit</a> <a href="{{pathFor 'variantPage'}}" class='discuss btn'>View</a>
+    </div>
 </template>
