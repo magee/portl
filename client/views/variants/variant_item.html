@@ -1,4 +1,4 @@
-<template name="variant">
+<template name="variantItem">
     <li>
         <h4>
             <span class="variant">{{ color }} / {{ size }}</span>
@@ -6,5 +6,6 @@
 
         <span class="sku">( {{ sku }} )</span>
         <span class="qty">quantity: {{ qty }}</span>
+        <span><a href="{{pathFor 'variantEdit'}}" class='discuss btn'>Edit</a> <a href="{{pathFor 'variantPage'}}" class='discuss btn'>View</a></span>
     </li>
 </template>
