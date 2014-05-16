@@ -7,7 +7,7 @@ Template.variantEdit.events({
     e.preventDefault();
 
     var variantProperties = {
-      productID     : $(e.target).find('[name=product]').val(),
+      productID     : $(e.target).find('[name=productID]').val(),
       sku           : $(e.target).find('[name=sku]').val(),
       title         : $(e.target).find('[name=title]').val(),
       color         : $(e.target).find('[name=color]').val(),
