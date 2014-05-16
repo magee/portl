@@ -5,14 +5,17 @@ var assert = require('assert');
 
 suite('Products', function() {
   test('in the server', function(done, server) {
+    var count = Products.find().count();
+
     server.eval(function() {
       Products.insert({title: 'hello title'});
       var docs = Products.find().fetch();
+
       emit('docs', docs);
     });
 
     server.once('docs', function(docs) {
-//      assert.equal(docs.length, 1);
+      assert.equal(docs.length, 1);
       done();
     });
   });
