@@ -5,7 +5,8 @@
       "iron-router": {},
       "spin": {},
       "bootstrap-3": {},
-      "accounts-ui-bootstrap-3": {}
+      "accounts-ui-bootstrap-3": {},
+      "typeahead": {}
     },
     "packages": {
       "iron-router": {
@@ -27,6 +28,11 @@
         "git": "https://github.com/mangasocial/meteor-accounts-ui-bootstrap-3.git",
         "tag": "v0.3.0-1",
         "commit": "93ffa5d0e325dc7026de89f6d90c178fa04bdd3a"
+      },
+      "typeahead": {
+        "git": "https://github.com/sergeyt/meteor-typeahead.git",
+        "tag": "v0.0.9",
+        "commit": "6aa2228a7cc93e89e94520bd60f1af4e7542dfcf"
       },
       "blaze-layout": {
         "git": "https://github.com/EventedMind/blaze-layout.git",
