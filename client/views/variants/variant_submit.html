@@ -1,15 +1,15 @@
 <template name="variantSubmit">
-    <form name="variant" class="comment-form">
+<!--    <form name="variant" class="form-horizontal comment-form">
         <div class="control-group">
             <div class="controls">
                 <label for="body">Add a new variant:</label>
-                <div class='control-group'>
+&lt;!&ndash;                <div class='control-group'>
                     <label class='control-label' for='sku'>SKU</label>
                     <div class='controls'>
                         <input name='sku' type='text' value='{{ sku }}' placeholder='product SKU'/>
                     </div>
-                </div>
-<!--
+                </div>&ndash;&gt;
+&lt;!&ndash;
 
                 <div class='control-group'>
                     <label class='control-label' for='title'>Variant Name</label>
@@ -18,11 +18,15 @@
                     </div>
                 </div>
 
--->
+&ndash;&gt;
                 <div class='control-group'>
                     <label class='control-label' for='color'>Color</label>
                     <div class='controls'>
-                        <input name='color' type='text' value='{{ color }}' placeholder='color'/>
+                        &lt;!&ndash;<input name='color2' type='text' value='{{ color }}' placeholder='color'/>&ndash;&gt;
+                        <input class="typeahead" value='{{ color }}' name="color" type="text"
+                               placeholder="color"
+                               autocomplete="off" spellcheck="off"
+                               data-source="colorList"/>
                     </div>
                 </div>
 
@@ -46,7 +50,7 @@
                         <input name='price' type='text' value='{{ price }}' placeholder='price'/>
                     </div>
                 </div>
-<!--
+&lt;!&ndash;
 
                 <div class='control-group'>
                     <div class='controls'>
@@ -60,12 +64,43 @@
                     </div>
                 </div>
 
--->
+&ndash;&gt;
             </div>
         </div>
         <div class="control-group">
             <div class="controls">
                 <br /><button type="submit" class="btn">Add</button>
+            </div>
+        </div>
+    </form>-->
+    <hr />
+    <form name="variant" class="form-horizontal" role="form">
+        <div class="form-group">
+            <div class="col-sm-1  control-label"></div>
+            <label for="color" class="col-sm-1 control-label">Color</label>
+            <div class="col-sm-2">
+                <input type="text" name="color" class="form-control" value='{{ color }}' id="color" placeholder="color">
+            </div>
+            <label for="size" class="col-sm-1 control-label">Size</label>
+            <div class="col-sm-1">
+                <input type="text" name="size" class="form-control" value='{{ size }}' id="size" placeholder="size">
+            </div>
+            <label for="qty" class="col-sm-1 control-label">Quantity</label>
+            <div class="col-sm-1">
+                <input type="text" name="qty" class="form-control" value='{{ qty }}' id="qty" placeholder="qty">
+            </div>
+        <!--</div>-->
+        <!--<div class="form-group">-->
+            <label for="cost" class="col-sm-1 control-label">Cost</label>
+            <div class="col-sm-1">
+                <input type="text" name="cost" class="form-control" value='{{ cost }}' id="cost" placeholder="cost">
+            </div>
+            <label for="price" class="col-sm-1 control-label">Price</label>
+            <div class="col-sm-1">
+                <input type="text" name="price" class="form-control"  value='{{ price }}' id="price" placeholder="price">
+            </div>
+            <div class="col-sm-1">
+                <button type="submit" class="btn">Add</button>
             </div>
         </div>
     </form>
