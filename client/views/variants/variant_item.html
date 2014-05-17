@@ -1,13 +1,11 @@
 <!-- Item template for variants list page -->
 <template name="variantItem">
     <li>
-        <h4>
-            <span class="variant">{{ color }} / {{ size }}</span>
-        </h4>
-
-        <span class="sku">( {{ sku }} )</span>
-        <span class="qty">quantity: {{ qty }}</span>
-        <span><a href="{{pathFor 'variantEdit'}}" class='discuss btn'>Edit</a> <a href="{{pathFor 'variantPage'}}" class='discuss btn'>View</a></span>
+        <div class="col-sm-2 variantTitle">{{ color }} / {{ size }}</div>
+        <div class="col-sm-4">( {{ sku }} )</div>
+        <div class="col-sm-2">{{ qty }}</div>
+        <div class="col-sm-offset-2 col-sm-1"><a href="{{pathFor 'variantEdit'}}">Delete</a></div>
+        <div class="col-sm-1"><a href="{{pathFor 'variantPage'}}">Edit</a></div>
     </li>
 </template>
 

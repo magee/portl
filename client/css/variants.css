@@ -1,0 +1,10 @@
+.variants .variantTitle {
+  font-weight: bold;
+}
+.variants li {
+  min-height : 3em;
+}
+.variants li.header-item {
+  font-weight: bold;
+
+}

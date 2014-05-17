@@ -13,6 +13,14 @@
     </div>
 
     <ul class="variants">
+        <li class="header-item">
+            <div class="col-sm-2">Name</div>
+            <div class="col-sm-4">SKU</div>
+            <div class="col-sm-2">Quantity</div>
+            <!--<div class="col-sm-offset-2 col-sm-1"><a href="{{pathFor 'variantEdit'}}">Delete</a></div>-->
+            <!--<div class="col-sm-1"><a href="{{pathFor 'variantPage'}}">Edit</a></div>-->
+        </li>
+
         {{#each variants }}
             {{> variantItem }}
         {{/each }}
