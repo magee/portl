@@ -22,7 +22,7 @@ Meteor.methods({
     if (!product)
       throw new Meteor.Error(422, 'A variant must be related to a product');
 
-    variant = _.extend(_.pick(variantAttributes, 'productId', 'sku'), {
+    variant = _.extend(variantAttributes, {
       userId: user._id,
       author: user.username,
       submitted: new Date().getTime()
