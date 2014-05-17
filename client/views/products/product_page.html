@@ -17,4 +17,15 @@
             {{> variantItem }}
         {{/each }}
     </ul>
+
+    <!-- TODO: use logic to do roles based access to editing
+    {{#if currentUser}}
+    {{> commentSubmit}}
+    {{else}}
+    <p>Please log in to leave a comment.</p>
+    {{/if}}
+    -->
+
+    {{> variantSubmit}}
+
 </template>
