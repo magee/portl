@@ -6,7 +6,7 @@ Session.setDefault('pageSize', 4);  // make sure this matches limit in publish T
 
 Meteor.autorun(function(){
   Meteor.subscribe('products', Session.get('productCursor'));
-})
+});
 
 Template.productsList.helpers({
   products: function() {
@@ -32,7 +32,7 @@ Template.productsList.helpers({
 
 Template.productsList.events({
   'click .previous': function(evt, tmpl){
-    if(Number(Session.get('productCursor') > 19)) {
+    if(Number(Session.get('productCursor') > Session.get('pageSize'))) {
       Session.set('productCursor', Number(Session.get('productCursor')) - Session.get('pageSize'));
     }
   },
