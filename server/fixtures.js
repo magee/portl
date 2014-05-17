@@ -3,7 +3,7 @@
 */
 
 Meteor.startup(function () {
-  Products.remove({});
+//  Products.remove({});
   if (Colors.find().count() === 0) {
     Colors.insert({"colorCode": "ACN", "name": "Acorn"});
     Colors.insert({"colorCode": "ADL", "name": "Adele"});
