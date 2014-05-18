@@ -31,15 +31,15 @@ Products.allow({
 if (Meteor.isServer) {
   Meteor.methods({
     addProduct: function(productAttributes) {
-      var user = Meteor.user(),
-          //TODO this doesn't work with new paginated cursor.  Revise.
-          productWithSameFamily = Products.findOne({ family: productAttributes.family });
 
-      if (!user) {
-        //TODO Find out where these errors are caught.
-        throw new Meteor.Error(401, 'You must be logged in to create new products.');
-      }
+      productWithSameFamily = Products.findOne({ family: productAttributes.family });
 
+//      if (!user) {
+//        //TODO Find out where these errors are caught.
+//        throw new Meteor.Error(401, 'You must be logged in to create new products.');
+//      }
+//
+      // TODO: change to client side validation.
       if (!productAttributes.title) {
         throw new Meteor.Error(422, 'A Product title is required');
       }
@@ -48,37 +48,44 @@ if (Meteor.isServer) {
         throw new Meteor.Error(302, 'This product has already been created', productWithSameFamily._id);
       }
 
-      var product = _.extend(productAttributes, {
-        userId    : user._id,
-        author    : user.username,
-        createdAt : new Date().getTime()
-      });
+      return Products.insert(productAttributes);
 
-      var productID = Products.insert(product);
-
-      return productID;
+      //TODO: reinstate error checking.
+//      Products.insert(productAttributes, function (error, id) {
+//        if (error) {
+//          throwError(error.reason);
+//        } else {
+//          return id;
+//        }
+//      });
     },
-    updateProduct : function(productAttributes) {
-      var currentProductId = productAttributes.productId;
+    updateProduct : function(productAttributes, productId) {
 
-      Products.update(currentProductId, {$set: _.omit(productAttributes, 'productId')}, function (error) {
+      Products.update(productId, {$set: productAttributes}, function (error) {
         if (error) {
           throwError(error.reason);
-        } else {
-          Router.go('productPage', {_id: currentProductId});
+//        } else {
+//          Router.go('productPage', {_id: currentProductId});
         }
+          Router.go('productPage', {_id: productId});
       });
     },
     deleteProduct : function(productId) {
+      //remove all related variants
+      Variants.remove({productId: productId}, function(error) {
+        if (error) {
+          throwError(error.reason);
+        }
+      });
+
       Products.remove(productId, function(error) {
         if (error) {
           throwError(error.reason);
-          //TODO: does this next line execute if an error is thrown?
-          Router.go('productPage', {_id: productId});
-        } else {
-          Router.go('productsList');
+//        } else {
+//          Router.go('productsList');
         }
       });
+      Router.go('productsList');
     }
   });
 }
