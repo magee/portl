@@ -1,5 +1,7 @@
-.variants .variantTitle {
-  font-weight: bold;
+.variants {
+  list-style-type: none;
+  margin: 0;
+  padding: 10px;
 }
 .variants li {
   min-height : 3em;
@@ -7,4 +9,25 @@
 .variants li.header-item {
   font-weight: bold;
 
+}
+.variants li h4 {
+  font-size: 16px;
+  margin: 0;
+}
+.variants li h4 .date {
+  font-size: 12px;
+  font-weight: normal;
+}
+.variants li h4 a { font-size: 12px }
+.variants li p:last-child { margin-bottom: 0 }
+.dropdown-menu span {
+  display: block;
+  padding: 3px 20px;
+  clear: both;
+  line-height: 20px;
+  color: #bbb;
+  white-space: nowrap;
+}
+.variants .variantTitle {
+  font-weight: bold;
 }

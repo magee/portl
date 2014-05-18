@@ -34,9 +34,9 @@ Template.variantSubmit.events({
       if (error){
         throwError(error.reason);
       } else {
-        $color.val('');
-        $qty.val('');
-        $size.val('');
+//        $color.val('');
+//        $qty.val('');
+//        $size.val('');
 //        $cost.val('');
 //        $price.val('');
       }

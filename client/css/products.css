@@ -9,4 +9,11 @@
   text-align    : left;
   padding-left  : 10px;
 }
-
+.product table, .product table.table td {
+  margin-left: 0;
+  text-align: left;
+  border: 3px black solid;
+}
+.currency {
+  text-align: right;
+}

@@ -1,12 +1,21 @@
 <!-- Item template for variants list page -->
 <template name="variantItem">
-    <li>
+    <tr>
+        <td>{{ title }}</td>
+        <td>{{ sku }}</td>
+        <td>{{ qty }}</td>
+        <td class="currency">{{ cost }}</td>
+        <td class="currency">{{ price }}</td>
+        <td class="currency"><a href="#" class="delete">Delete</a> <a href="{{pathFor 'variantPage'}}">Edit</a></td>
+    </tr>
+
+<!--    <li>
         <div class="col-sm-2 variantTitle">{{ color }} / {{ size }}</div>
         <div class="col-sm-4">( {{ sku }} )</div>
         <div class="col-sm-2">{{ qty }}</div>
         <div class="col-sm-offset-2 col-sm-1"><a href="{{pathFor 'variantEdit'}}">Delete</a></div>
         <div class="col-sm-1"><a href="{{pathFor 'variantPage'}}">Edit</a></div>
-    </li>
+    </li>-->
 </template>
 
 <!-- Item details for variant page -->

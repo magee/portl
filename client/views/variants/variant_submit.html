@@ -1,9 +1,27 @@
 <template name="variantSubmit">
-<!--    <form name="variant" class="form-horizontal comment-form">
-        <div class="control-group">
-            <div class="controls">
-                <label for="body">Add a new variant:</label>
-&lt;!&ndash;                <div class='control-group'>
+    <form name="variant" role="form">
+        <div>
+            <table class="table table-striped">
+                <tbody>
+                <tr>
+                    <td class="col-sm-4"><input type="text" name="color" class="form-control" value='{{ color }}' id="color" placeholder="color"></td>
+                    <td class="col-sm-2"><input type="text" name="size" class="form-control" value='{{ size }}' id="size" placeholder="size"></td>
+                    <td class="col-sm-1"><input type="text" name="qty" class="form-control" value='{{ qty }}' id="qty" placeholder="qty"></td>
+                    <td class="col-sm-2"><input type="text" name="cost" class="form-control" value='{{ cost }}' id="cost" placeholder="cost"></td>
+                    <td class="col-sm-2"><input type="text" name="price" class="form-control"  value='{{ price }}' id="price" placeholder="price"></td>
+                    <td class="col-sm-1 currency"><button type="submit" class="btn">Add</button></td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </form>
+
+
+    <!--    <form name="variant" class="form-horizontal comment-form">
+            <div class="control-group">
+                <div class="controls">
+                    <label for="body">Add a new variant:</label>
+    &lt;!&ndash;                <div class='control-group'>
                     <label class='control-label' for='sku'>SKU</label>
                     <div class='controls'>
                         <input name='sku' type='text' value='{{ sku }}' placeholder='product SKU'/>
@@ -73,29 +91,46 @@
             </div>
         </div>
     </form>-->
+<!--
     <hr />
-    <form name="variant" class="form-horizontal" role="form">
+    <form name="variant" class="" role="form">
+        <div class="form-group row">
+            <div class="col-sm-2">
+                <label for="color" class="col-sm-1 control-label">Color</label>
+            </div>
+            <div class="col-sm-2">
+                <label for="size" class="col-sm-1 control-label">Size</label>
+            </div>
+            <div class="col-sm-2">
+                <label for="qty" class="col-sm-1 control-label">Quantity</label>
+            </div>
+            <div class="col-sm-1">
+                <label for="cost" class="col-sm-1 control-label">Cost</label>
+            </div>
+            <div class="col-sm-1">
+                <label for="price" class="col-sm-1 control-label">Price</label>
+            </div>
+            <div class="col-sm-1"></div>
+        </div>
         <div class="form-group">
-            <div class="col-sm-1  control-label"></div>
-            <label for="color" class="col-sm-1 control-label">Color</label>
+            &lt;!&ndash;<div class="col-sm-1  control-label"></div>&ndash;&gt;
             <div class="col-sm-2">
                 <input type="text" name="color" class="form-control" value='{{ color }}' id="color" placeholder="color">
             </div>
-            <label for="size" class="col-sm-1 control-label">Size</label>
-            <div class="col-sm-1">
+
+            <div class="col-sm-2">
                 <input type="text" name="size" class="form-control" value='{{ size }}' id="size" placeholder="size">
             </div>
-            <label for="qty" class="col-sm-1 control-label">Quantity</label>
-            <div class="col-sm-1">
+
+            <div class="col-sm-2">
                 <input type="text" name="qty" class="form-control" value='{{ qty }}' id="qty" placeholder="qty">
             </div>
-        <!--</div>-->
-        <!--<div class="form-group">-->
-            <label for="cost" class="col-sm-1 control-label">Cost</label>
+        &lt;!&ndash;</div>&ndash;&gt;
+        &lt;!&ndash;<div class="form-group">&ndash;&gt;
+
             <div class="col-sm-1">
                 <input type="text" name="cost" class="form-control" value='{{ cost }}' id="cost" placeholder="cost">
             </div>
-            <label for="price" class="col-sm-1 control-label">Price</label>
             <div class="col-sm-1">
                 <input type="text" name="price" class="form-control"  value='{{ price }}' id="price" placeholder="price">
             </div>
@@ -104,4 +139,5 @@
             </div>
         </div>
     </form>
+-->
 </template>
