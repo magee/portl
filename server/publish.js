@@ -7,7 +7,8 @@ Meteor.publish('products', function(productCursor){
   return Products.find({},{
     skip: productCursor,
     limit: 4,
-    title: {_id: 1}});
+    sort: {vendor: 1, sku: 1}
+  });
 //  return Products.find({}, {limit: 5, skip: productPage});
 });
 Meteor.publish('product', function(productID){
