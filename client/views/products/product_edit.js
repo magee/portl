@@ -5,8 +5,6 @@ Template.productEdit.events({
   'submit form': function (e) {
     e.preventDefault();
 
-    var currentProductId = this._id;
-
     var productProperties = {
       family        : $(e.target).find('[name=family]').val(),
       title         : $(e.target).find('[name=title]').val(),
@@ -17,20 +15,40 @@ Template.productEdit.events({
       price         : $(e.target).find('[name=price]').val()
     };
 
-    Products.update(currentProductId, {$set: productProperties}, function (error) {
-       if (error) {
-         throwError(error.reason);
-       } else {
-         Router.go('productPage', {_id: currentProductId});
-       }
+    var currentProduct = _.extend(productProperties, {
+      productId: this._id
+    });
+
+    Meteor.call('updateProduct', currentProduct, this._id, function(error, id) {
+      if (error) {
+        throwError(error.reason);
+
+        if (error.error === 302) {
+          Router.go('productPage', {_id: error.details});
+        }
+      } else {
+        Router.go('productPage', {_id: id});
+      }
     });
   },
   'click .delete': function (e) {
     e.preventDefault();
 
     if (confirm('Delete this product?')) {
+
+      Meteor.call('deleteProduct', this._id, function(error, id) {
+
+        if (error) {
+          throwError(error.reason);
+
+          if (error.error === 302) {
+//            Router.go('productPage', {_id: error.details});
+          }
+        } else {
+//          Router.go('productsList');
+        }
+      });
       var currentProductId = this._id;
-      Products.remove(currentProductId);
       Router.go('productsList');
     }
   }
