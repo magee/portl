@@ -49,7 +49,10 @@ Template.productEdit.events({
         }
       });
       var currentProductId = this._id;
-      Router.go('productsList');
+      //Router.go('productsList');
     }
+  },
+  'click .cancel': function(e) {
+    Router.go('productsList');
   }
 });

@@ -1,64 +1,153 @@
 <template name='productEdit'>
-    <form class='main'>
-        <div class='control-group'>
-            <label class='control-label' for='family'>Family</label>
-            <div class='controls'>
-                <input name='family' type='text' value='{{ family }}' placeholder='product family'/>
-            </div>
+    <div class="pageContainer">
+        <div class="pageContainer">
+            <h4>Edit Product</h4>
+            <br />
+            <form name="product" class="form-horizontal" role="form">
+                <div class="form-group">
+                    <label for="family" class="col-sm-2 control-label">Sku Prefix</label>
+                    <div class="col-sm-10">
+                        <input type="text" name="family" class="form-control" value='{{ family }}' id="family" placeholder="e.g. 01-NS-90021-3">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="title" class="col-sm-2 control-label">Product Name</label>
+                    <div class="col-sm-10">
+                        <input type="text" name="title" class="form-control" id="title" value='{{ title }}' placeholder="e.g. Striped Long-sleeve Henley Tee">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="product_type" class="col-sm-2 control-label">Category</label>
+                    <div class="col-sm-10">
+                        <select class="form-control" name="product_type" id="product_type">
+                            <option value=""></option>
+                            <option value="01">Accessories</option>
+                            <option value="02">Denim</option>
+                            <option value="03">Dresses</option>
+                            <option value="04">Jackets</option>
+                            <option value="05">Pants</option>
+                            <option value="06">Shoes</option>
+                            <option value="07">Skirts</option>
+                            <option value="08">Sweaters</option>
+                            <option value="09">Tops</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="vendor" class="col-sm-2 control-label">Vendor</label>
+                    <div class="col-sm-10">
+                        <input type="text" name="vendor" class="form-control"  value='{{ vendor }}' id="vendor" placeholder="e.g. Alternate Apparel">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="season" class="col-sm-2 control-label">Season</label>
+                    <div class="col-sm-10">
+                        <select class="form-control" name="season" id="season">
+                            <option value=""></option>
+                            <option value="NS">no season</option>
+                            <option value="SP">spring</option>
+                            <option value="SU">summer</option>
+                            <option value="FA">winter</option>
+                            <option value="WI">fall</option>
+                            <!--
+                            only used for imported products
+                            <option value="00">legacy</option>
+                            -->
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="cost" class="col-sm-2 control-label">Cost</label>
+                    <div class="col-sm-10">
+                        <input type="text" name="cost" class="form-control"  value='{{ cost }}' id="cost" placeholder="32.50">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="price" class="col-sm-2 control-label">Price</label>
+                    <div class="col-sm-10">
+                        <input type="text" width="15" name="price" class="form-control" value='{{ price }}' id="price" placeholder="50.00">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="col-sm-offset-2 col-sm-10">
+                        <button type="submit" class="btn btn-primary btn-default">Save</button>
+                        <button type="cancel" class="btn cancel">Cancel</button>
+
+                    </div>
+                </div>
+            </form>
         </div>
 
-        <div class='control-group'>
-            <label class='control-label' for='title'>Product Name</label>
-            <div class='controls'>
-                <input name='title' disabled=true size="75" type='text' value='{{ title }}' placeholder='product name'/>
+ <!--       <form class='main'>
+            <div class='control-group'>
+                <label class='control-label' for='family'>Family</label>
+                <div class='controls'>
+                    <input name='family' type='text' value='{{ family }}' placeholder='product family'/>
+                </div>
             </div>
-        </div>
 
-        <div class='control-group'>
-            <label class='control-label' for='product_type'>Type</label>
-            <div class='controls'>
-                <input name='product_type' type='text' value='{{ product_type }}' placeholder='product type'/>
+            <div class='control-group'>
+                <label class='control-label' for='title'>Product Name</label>
+                <div class='controls'>
+                    <input name='title' disabled=true size="75" type='text' value='{{ title }}' placeholder='product name'/>
+                </div>
             </div>
-        </div>
 
-        <div class='control-group'>
-            <label class='control-label' for='vendor'>Vendor</label>
-            <div class='controls'>
-                <input name='vendor' type='text' value='{{ vendor }}' placeholder='vendor'/>
+            <div class='control-group'>
+                <label class='control-label' for='product_type'>Type</label>
+                <div class='controls'>
+                    <input name='product_type' type='text' value='{{ product_type }}' placeholder='product type'/>
+                </div>
             </div>
-        </div>
 
-        <div class='control-group'>
-            <label class='control-label' for='season'>Season</label>
-            <div class='controls'>
-                <input name='season' type='text' value='{{ season }}' placeholder='season'/>
+            <div class='control-group'>
+                <label class='control-label' for='vendor'>Vendor</label>
+                <div class='controls'>
+                    <input name='vendor' type='text' value='{{ vendor }}' placeholder='vendor'/>
+                </div>
             </div>
-        </div>
 
-        <div class='control-group'>
-            <label class='control-label' for='cost'>Cost</label>
-            <div class='controls'>
-                <input name='cost' type='text' value='{{ cost }}' placeholder='cost'/>
+            <div class='control-group'>
+                <label class='control-label' for='season'>Season</label>
+                <div class='controls'>
+                    <input name='season' type='text' value='{{ season }}' placeholder='season'/>
+                </div>
             </div>
-        </div>
 
-        <div class='control-group'>
-            <label class='control-label' for='price'>Price</label>
-            <div class='controls'>
-                <input name='price' type='text' value='{{ price }}' placeholder='price'/>
+            <div class='control-group'>
+                <label class='control-label' for='cost'>Cost</label>
+                <div class='controls'>
+                    <input name='cost' type='text' value='{{ cost }}' placeholder='cost'/>
+                </div>
             </div>
-        </div>
 
-        <div class='control-group'>
-            <div class='controls'>
-                <input type='submit' value='Submit' class='btn btn-primary submit'/>
+            <div class='control-group'>
+                <label class='control-label' for='price'>Price</label>
+                <div class='controls'>
+                    <input name='price' type='text' value='{{ price }}' placeholder='price'/>
+                </div>
             </div>
-        </div>
 
-        <div class='control-group'>
-            <div class='controls'>
-                <a class='btn btn-danger delete' href='#'>Delete Product</a>
+            <div class='control-group'>
+                <div class='controls'>
+                    <input type='submit' value='Submit' class='btn btn-primary submit'/>
+                </div>
             </div>
-        </div>
-    </form>    
+
+            <div class='control-group'>
+                <div class='controls'>
+                    <a class='btn btn-danger delete' href='#'>Delete Product</a>
+                </div>
+            </div>
+        </form>
+
+-->
+    </div>
 </template>
