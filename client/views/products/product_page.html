@@ -1,43 +1,49 @@
 <template name="productPage">
-
-    <div class='product'>
-
-        <div class='col-sm-10'>
-            <h3 id="productTitle">{{title}} </h3>
+    <div class="pageContainer">
+        <div class="breadcrumbs">
+            <!--TODO: abstract and put into views/includes-->
+            /<a href="{{pathFor 'home' }}">home</a>/<a href="{{pathFor 'productsList' }}">products</a>/{{ title }}
         </div>
-        <div class="col-sm-2" style="text-align: right;">
-            <br />
-            <a href="#" class="delete"><i class="fa fa-trash-o fa-2x"></i></a> &nbsp; <a href="{{pathFor 'productEdit'}}" class="edit"><i class="fa fa-pencil fa-2x"></i></a>
-        </div>
-        <!-- TODO: Add roles-based access to edit option-->
-        <div class="col-sm-12">
-            <div><span class="label">sku prefix:</span> <span id="productFamily">{{ family }}</span></div>
-            <div><span class="label">vendor:</span> <span id="productVendor">{{ vendor }}</span></div>
-            <div><span class="label">season:</span> <span id="productSeason">{{ season }}</span></div>
-            <div><span class="label">notes:</span> <span id="productNotes">{{ productNotes }}</span></div>
-        </div>
-    </div>
 
-    <div class="variants">
-        <h4>Variants</h4>
-        <table class="table table-striped">
-            <thead>
-            <td style="text-align: left;">Title</td>
-            <td>SKU</td>
-            <td>Qty</td>
-            <td class="currency">Cost</td>
-            <td class="currency">Price</td>
-            <td></td>
-            <td></td>
-            </thead>
-            <tbody>
-            {{#each variants }}
+        <div class='product'>
+
+            <div class='col-sm-10'>
+                <h3 id="productTitle">{{title}} </h3>
+            </div>
+            <div class="col-sm-2" style="text-align: right;">
+                <br />
+                <a href="#" class="delete"><i class="fa fa-trash-o fa-2x"></i></a> &nbsp; <a href="{{pathFor 'productEdit'}}" class="edit"><i class="fa fa-pencil fa-2x"></i></a>
+            </div>
+            <!-- TODO: Add roles-based access to edit option-->
+            <div class="col-sm-12">
+                <div><span class="label">sku prefix:</span> <span id="productFamily">{{ family }}</span></div>
+                <div><span class="label">vendor:</span> <span id="productVendor">{{ vendor }}</span></div>
+                <div><span class="label">season:</span> <span id="productSeason">{{ season }}</span></div>
+                <div><span class="label">notes:</span> <span id="productNotes">{{ productNotes }}</span></div>
+            </div>
+        </div>
+
+        <div class="variants">
+            <h4>Variants</h4>
+            <table class="table table-striped">
+                <thead>
+                <td style="text-align: left;">Title</td>
+                <td>SKU</td>
+                <td>Qty</td>
+                <td class="currency">Cost</td>
+                <td class="currency">Price</td>
+                <td></td>
+                <td></td>
+                </thead>
+                <tbody>
+                {{#each variants }}
                 {{> variantItem }}
-            {{/each }}
-            </tbody>
-        </table>
+                {{/each }}
+                </tbody>
+            </table>
+        </div>
+
+        {{> variantSubmit}}
+
     </div>
-
-    {{> variantSubmit}}
-
 </template>

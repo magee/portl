@@ -72,3 +72,10 @@ body {
 .hidden {
   display: none;
 }
+.pageContainer {
+  margin-top: 10px;
+}
+.breadcrumbs {
+  margin: 20px 5px;
+  font-size: .8em;
+}
