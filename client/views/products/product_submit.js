@@ -5,6 +5,8 @@ Template.productSubmit.events({
    'submit form': function (e) {
      e.preventDefault();
 
+     var user = Meteor.user();
+
      var product = {
        family        : $(e.target).find('[name=family]').val(),
        title         : $(e.target).find('[name=title]').val(),
@@ -12,7 +14,10 @@ Template.productSubmit.events({
        product_type  : $(e.target).find('[name=product_type]').val(),
        season        : $(e.target).find('[name=season]').val(),
        cost          : $(e.target).find('[name=cost]').val(),
-       price         : $(e.target).find('[name=price]').val()
+       price         : $(e.target).find('[name=price]').val(),
+       userId        : user._id,
+       author        : user.username,
+       createdAt     : new Date().getTime()
      };
 
 //     var APIRequest = {
@@ -23,8 +28,10 @@ Template.productSubmit.events({
 //     };
 //
 //     Meteor.call('callShopifyAPI', APIRequest);
-     Meteor.call('post', product, function(error, id) {
+     Meteor.call('addProduct', product, function(error, id) {
+       //TODO: review error handling
         if (error) {
+          console.log(error);
           throwError(error.reason);
 
           if (error.error === 302) {
@@ -36,7 +43,6 @@ Template.productSubmit.events({
      });
    }
 });
-
 
 /*
 
