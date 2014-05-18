@@ -7,7 +7,8 @@
       "bootstrap-3": {},
       "accounts-ui-bootstrap-3": {},
       "typeahead": {},
-      "fontawesome4": {}
+      "fontawesome4": {},
+      "supercalendar": {}
     },
     "packages": {
       "iron-router": {
@@ -40,10 +41,25 @@
         "tag": "v1.0.0",
         "commit": "fe38ec775e974f0f7855d1693dc74fd4f1b4848c"
       },
+      "supercalendar": {
+        "git": "https://github.com/gabrielhpugliese/meteor_supercalendar",
+        "tag": "v0.2.0",
+        "commit": "70229679d36b96be28abab4bf4105a7480d4ebbf"
+      },
       "blaze-layout": {
         "git": "https://github.com/EventedMind/blaze-layout.git",
         "tag": "v0.2.4",
         "commit": "b40e9b0612329288d75cf52ad14a7da64bb8618f"
+      },
+      "Mesosphere": {
+        "git": "https://github.com/copleykj/Mesosphere.git",
+        "tag": "v0.1.9",
+        "commit": "dc63582fa5d3a4dc3952a80bead9625ef4ab259b"
+      },
+      "underscore-string-latest": {
+        "git": "https://github.com/TimHeckel/meteor-underscore-string.git",
+        "tag": "v2.3.3",
+        "commit": "4a5d70eee48fbd90a6e6fc78747250d704a0b3bb"
       }
     }
   }
