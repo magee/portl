@@ -4,7 +4,7 @@
 
 Template.variantItem.helpers({
    editMode: function(){
-     if($Session.get('editVariant')) {
+     if(Session.get('editVariant')) {
        return " class='hidden' ";
      }
      return "";
@@ -14,11 +14,11 @@ Template.variantItem.helpers({
 Template.variantItem.events({
   'click .edit': function (e) {
     e.preventDefault();
-    $Session.set('editVariant', TRUE);
+    Session.set('editVariant', TRUE);
   },
   'click .save': function (e) {
     e.preventDefault();
-    $Session.set('editVariant', FALSE);
+    Session.set('editVariant', FALSE);
   },
   'click .delete': function (e) {
     e.preventDefault();
