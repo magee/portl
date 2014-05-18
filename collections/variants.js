@@ -8,11 +8,10 @@
  */
 
 Variants = new Meteor.Collection('variants');
-var user = Meteor.user();
 
 Meteor.methods({
   addVariant: function(variantAttributes) {
-//    var user = Meteor.user();
+    var user = Meteor.user();
     var product = Products.findOne(variantAttributes.productId);
 
 // ensure the user is logged in
@@ -32,7 +31,7 @@ Meteor.methods({
     return Variants.insert(variant);
   },
   updateVariant: function(variantAttributes) {
-//    var user = Meteor.user();
+    var user = Meteor.user();
     var product = Products.findOne(variantAttributes.productId);
 
 // ensure the user is logged in
