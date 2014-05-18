@@ -1,15 +1,21 @@
 <template name="productPage">
 
     <div class='product'>
-        <div class=''>
+
+        <div class='col-sm-10'>
             <h3 id="productTitle">{{title}} </h3>
+        </div>
+        <div class="col-sm-2" style="text-align: right;">
+            <br />
+            <a href="#" class="delete"><i class="fa fa-trash-o fa-2x"></i></a> &nbsp; <a href="{{pathFor 'productEdit'}}" class="edit"><i class="fa fa-pencil fa-2x"></i></a>
+        </div>
+        <!-- TODO: Add roles-based access to edit option-->
+        <div class="col-sm-12">
             <div><span class="label">sku prefix:</span> <span id="productFamily">{{ family }}</span></div>
             <div><span class="label">vendor:</span> <span id="productVendor">{{ vendor }}</span></div>
             <div><span class="label">season:</span> <span id="productSeason">{{ season }}</span></div>
             <div><span class="label">notes:</span> <span id="productNotes">{{ productNotes }}</span></div>
         </div>
-        <!-- TODO: Add roles-based access to edit option-->
-        <a href="{{pathFor 'productEdit'}}" class='discuss btn'>Edit</a> <a href="{{pathFor 'productPage'}}" class='discuss delete btn'>Delete</a>
     </div>
 
     <div class="variants">
@@ -26,7 +32,7 @@
             </thead>
             <tbody>
             {{#each variants }}
-            {{> variantItem }}
+                {{> variantItem }}
             {{/each }}
             </tbody>
         </table>
