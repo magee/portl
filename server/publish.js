@@ -13,8 +13,8 @@ Meteor.publish('products', function(productCursor){
 Meteor.publish('product', function(productID){
   return Products.find(productID);
 })
-Meteor.publish('variants', function(){
-  return Variants.find();
+Meteor.publish('variants', function(productID){
+  return Variants.find({productId: productID});
 });
 
 Meteor.publish('productCount', function() {
