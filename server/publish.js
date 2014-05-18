@@ -13,18 +13,24 @@ Meteor.publish('products', function(productCursor){
 });
 Meteor.publish('product', function(productID){
   return Products.find(productID);
-})
+});
+
 Meteor.publish('variants', function(productID){
   return Variants.find({productId: productID});
 });
 
 Meteor.publish('productCount', function() {
   return Products.find().count();
-})
+});
 
 Meteor.publish('colors', function() {
   return Colors.find();
-})
+});
+
+//TODO: implement event privacy
+Meteor.publish('calEvents', function() {
+  return CalEvents.find();
+});
 
 //Meteor.publish('notifications', function(options){
 //  return Products.find({}, options);

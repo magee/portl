@@ -1,7 +1,24 @@
-<template name="mainCalendar">
-    <div class="mainCalendar">
-        {{> calendar}}
-        {{> new_event_modal}}
-        {{> event_details}}
+<template name="calendar">
+    {{#if showEditEvent}}
+    {{ >editevent}}
+    {{/if}}
+    <input type="hidden" name="lastMod" value="{{lastMod}}" id="lastMod">
+    <div id="calendar"></div>
+</template>
+
+<template name="editevent">
+    <div id="example" class="modal">
+        <div class="modal-header">
+            <a class="close" data-dismiss="modal">x</a>
+            <h3>Edit event</h3>
+        </div>
+        <div class="modal-body">
+            <label for="title">Event:</label>
+            <input type="text" name="title" id="title" value="{{evt.title}}">
+        </div>
+        <div class="modal-footer">
+            <a href="#" class="btn btn-success save">Save</a>
+            <a href="#" class="btn cancel" data-dismiss="modal">Cancel</a>
+        </div>
     </div>
 </template>
