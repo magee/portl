@@ -6,7 +6,8 @@
       "spin": {},
       "bootstrap-3": {},
       "accounts-ui-bootstrap-3": {},
-      "typeahead": {}
+      "typeahead": {},
+      "fontawesome4": {}
     },
     "packages": {
       "iron-router": {
@@ -33,6 +34,11 @@
         "git": "https://github.com/sergeyt/meteor-typeahead.git",
         "tag": "v0.0.9",
         "commit": "6aa2228a7cc93e89e94520bd60f1af4e7542dfcf"
+      },
+      "fontawesome4": {
+        "git": "https://github.com/chrismbeckett/meteor-fontawesome4.git",
+        "tag": "v1.0.0",
+        "commit": "fe38ec775e974f0f7855d1693dc74fd4f1b4848c"
       },
       "blaze-layout": {
         "git": "https://github.com/EventedMind/blaze-layout.git",
