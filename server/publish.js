@@ -27,6 +27,10 @@ Meteor.publish('colors', function() {
   return Colors.find();
 });
 
+Meteor.publish('vendors', function() {
+  return Vendors.find();
+})
+
 //TODO: implement event privacy
 Meteor.publish('calEvents', function() {
   return CalEvents.find();
