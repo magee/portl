@@ -1,0 +1,18 @@
+.graphical-menu {
+  width: 100%;
+  text-align: center;
+  margin: 40px 0;
+}
+a, a:visited, a:active {
+  color: #1a1a1a;
+}
+a:hover {
+  color: #F25D4A;
+}
+table tr.spacer {
+  height: 100px;
+}
+h2 {
+  margin-top: 40px;
+  margin-left: 10px;
+}
