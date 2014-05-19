@@ -11,7 +11,8 @@
                 <div class="form-group">
                     <label for="family" class="col-sm-2 control-label">Sku Prefix</label>
                     <div class="col-sm-10">
-                        <input type="text" name="family" class="form-control" value='{{ family }}' id="family" placeholder="e.g. 01-NS-90021-3">
+                        <!--SKU's cannot be changed after a product has been created-->
+                        <input type="text" name="family" disabled class="form-control" value='{{ family }}' id="family" placeholder="e.g. 01-NS-90021-3">
                     </div>
                 </div>
 
@@ -68,14 +69,14 @@
                 <div class="form-group">
                     <label for="cost" class="col-sm-2 control-label">Cost</label>
                     <div class="col-sm-10">
-                        <input type="text" name="cost" class="form-control"  value='{{ cost }}' id="cost" placeholder="32.50">
+                        <input type="text" name="cost" class="form-control" value='{{ cost }}' id="cost" placeholder="32.50">
                     </div>
                 </div>
 
                 <div class="form-group">
                     <label for="price" class="col-sm-2 control-label">Price</label>
                     <div class="col-sm-10">
-                        <input type="text" width="15" name="price" class="form-control" value='{{ price }}' id="price" placeholder="50.00">
+                        <input type="text" name="price" class="form-control" value='{{ price }}' id="price" placeholder="50.00">
                     </div>
                 </div>
 
@@ -83,7 +84,6 @@
                     <div class="col-sm-offset-2 col-sm-10">
                         <button type="submit" class="btn btn-primary btn-default">Save</button>
                         <button type="cancel" class="btn cancel">Cancel</button>
-
                     </div>
                 </div>
             </form>
