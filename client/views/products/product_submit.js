@@ -1,24 +1,48 @@
 /**
  * Created by mageemooney on 5/4/14.
  */
+Template.productSubmit.helpers({
+  draftSKU: function(e, template) {
+    var yr = new Date().getFullYear();
+    var sku;
+    Meteor.autoRun(function(){
+      Deps.autoRun(function(){
+        sku = (Session.get('product_type') || '') + '-' + yr + Session.get('season') + '-' + Session.get('vendorCode');
+        console.log('sku: ', sku);
+        return sku;
+      });
+    });
+  }
+});
+
 Template.productSubmit.events({
-   'submit form': function (e) {
-     e.preventDefault();
+  'change #season': function (e, template) {
+    e.preventDefault();
+    Session.set('season', template.find('#season').value);
+  },
 
-     var user = Meteor.user();
+  'submit form': function (e) {
+    e.preventDefault();
 
-     var product = {
-       family        : $(e.target).find('[name=family]').val(),
-       title         : $(e.target).find('[name=title]').val(),
-       vendor        : $(e.target).find('[name=vendor]').val(),
-       product_type  : $(e.target).find('[name=product_type]').val(),
-       season        : $(e.target).find('[name=season]').val(),
-       cost          : $(e.target).find('[name=cost]').val(),
-       price         : $(e.target).find('[name=price]').val(),
-       userId        : user._id,
-       author        : user.username,
-       createdAt     : new Date().getTime()
-     };
+    var user = Meteor.user();
+
+    var thisYear = new Date().getFullYear();
+    console.log(thisYear);
+    thisYear = thisYear - 2000;
+    Session.set('sku-prefix', $(e.target).find('[name=product_type]').val() + '-' + thisYear + $(e.target).find('[name=season]').val() + '-' + $(e.target).find('[name=vendor]').val() + '-' + 'n');
+
+    var product = {
+      family        : Session.get('sku-prefix'),
+      title         : $(e.target).find('[name=title]').val(),
+      vendor        : $(e.target).find('[name=vendor]').val(),
+      product_type  : $(e.target).find('[name=product_type]').val(),
+      season        : $(e.target).find('[name=season]').val(),
+      cost          : $(e.target).find('[name=cost]').val(),
+      price         : $(e.target).find('[name=price]').val(),
+      userId        : user._id,
+      author        : user.username,
+      createdAt     : new Date().getTime()
+    };
 
 //     var APIRequest = {
 //       verb   : 'POST',
@@ -37,6 +61,7 @@ Template.productSubmit.events({
           if (error.error === 302) {
             Router.go('productPage', {_id: error.details});
           }
+
         } else {
           Router.go('productPage', {_id: id});
         }
