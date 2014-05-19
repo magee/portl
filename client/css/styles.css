@@ -79,3 +79,6 @@ body {
   margin: 0 5px 20px 5px;
   font-size: .8em;
 }
+.form-control {
+  width: 75%;
+}
