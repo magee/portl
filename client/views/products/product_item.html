@@ -2,7 +2,7 @@
 <template name='productItem'>
     <div class='product'>
         <div class='product-content'>
-            <h3><a href="{{pathFor 'productPage'}}">{{title}}</a><span> ( {{family}} )</span></h3>
+            <h3><a href="{{pathFor 'productPage'}}">{{title}}</a><span> ( {{family}} )</span></h3>  ({{ variantsCount }})
         </div>
         <!--TODO: Add roles-based access to edit option-->
         <a href="{{pathFor 'productEdit'}}" alt="edit product" class='discuss btn'><i class="fa fa-pencil fa-lg"></i></a>
