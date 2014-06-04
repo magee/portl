@@ -1,9 +1,14 @@
 <template name="layout">
     <div class="container tandp">
-        {{> header}}
-        {{> meteorErrors}}
-        <div id="main" class="row-fluid">
-            {{> yield}}
+        <div id="header">{{> header }}</div>
+
+        <div id="content">
+            {{> meteorErrors}}
+            <div id="main" class="row-fluid">
+                {{> yield}}
+            </div>
         </div>
+
+        <div id="footer">{{> footer }}</div>
     </div>
 </template>
