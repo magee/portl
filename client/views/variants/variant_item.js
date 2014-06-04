@@ -16,10 +16,18 @@ Template.variantItem.events({
     e.preventDefault();
     Session.set('editVariant', TRUE);
   },
+
   'click .save': function (e) {
     e.preventDefault();
     Session.set('editVariant', FALSE);
   },
+
+  'click tr': function(e, template){
+    e.preventDefault();
+    var response = $(e.target).find('[name=id]').val();
+    Session.set('selectedVariant', response);
+  },
+
   'click .delete': function (e) {
     e.preventDefault();
 
