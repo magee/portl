@@ -5,4 +5,4 @@ meteor-deploy.sh
 *.tgz
 settings.json
 client/view/shopify*
-
+/**/.DS_Store
