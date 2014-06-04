@@ -1,0 +1,18 @@
+<template name="productLayout">
+    <div class="container tandp">
+        <div id="header">
+            {{> header }}
+        </div>
+
+        <div id="productContent">
+            {{> meteorErrors}}
+            <div id="main" class="row-fluid">
+                {{> yield}}
+            </div>
+        </div>
+
+        <div id="productFooter">
+            {{> productFooter }}
+        </div>
+    </div>
+</template>

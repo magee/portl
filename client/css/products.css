@@ -17,3 +17,19 @@
 .currency {
   text-align: right;
 }
+#productFooter {
+  position: absolute;
+  bottom: 0px;
+  left: 0px;
+  right: 0px;
+  height: 125px;
+  overflow: hidden;
+}
+#productContent {
+  position: absolute;
+  top: 50px;
+  bottom: 200px;
+  left: 0px;
+  right: 0px;
+  overflow: auto;
+}
