@@ -40,6 +40,14 @@ Template.productPage.helpers({
 });
 
 Template.productVariants.helpers({
+  selectedVariant: function() {
+    if (Session.get('selectedVariant')){
+      return Variants.findOne(Session.get('selectedVariant'));
+    } else {
+      return '';
+    }
+  },
+
   variants:  function() {
 //     return Variants.find({productId: this._id});
     return Variants.find();
