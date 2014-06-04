@@ -1,21 +1,19 @@
 <template name="productsList">
-    <div class="pageContainer">
-        {{ #if currentUser }}
-        {{> pageTitle }}
+    {{ #if currentUser }}
+    {{> pageTitle }}
 <!--            <p>Product Count: {{ getProductCount }}</p>-->
-            <div class="products">
-                {{#each products}}
-                {{> productItem}}
-                {{/each}}
-            </div>
-            <div>
-                <ul class="pager">
-                    <li class="previous"><a href="#" class="{{ prevText.showClass }}">{{ prevText.text }}</a></li>
-                    <li class="next"><a href="#" class="{{ nextText.showClass }}">{{ nextText.text }}</a></li>
-                </ul>
-            </div>
-        {{ else }}
-            <h1>Tog + Porter Stylist Portal</h1>
-        {{/if }}
-    </div>
+        <div class="products">
+            {{#each products}}
+            {{> productItem}}
+            {{/each}}
+        </div>
+        <div>
+            <ul class="pager">
+                <li class="previous"><a href="#" class="{{ prevText.showClass }}">{{ prevText.text }}</a></li>
+                <li class="next"><a href="#" class="{{ nextText.showClass }}">{{ nextText.text }}</a></li>
+            </ul>
+        </div>
+    {{ else }}
+        <h1>Tog + Porter Stylist Portal</h1>
+    {{/if }}
 </template>
