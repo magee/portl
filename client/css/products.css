@@ -22,13 +22,13 @@
   bottom: 0px;
   left: 0px;
   right: 0px;
-  height: 125px;
+  height: 53px;
   overflow: hidden;
 }
 #productContent {
   position: absolute;
   top: 50px;
-  bottom: 200px;
+  bottom: 60px;
   left: 0px;
   right: 0px;
   overflow: auto;
