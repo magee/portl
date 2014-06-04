@@ -32,7 +32,6 @@ function updateSKU() {
 
 //  Meteor.autoRun(function(){
 //    Deps.autoRun(function(){
-      console.log("running Deps.autorun".underline.red);
       sku = (Session.get('product_type') || '') + '-' + yr + Session.get('season') + '-' + Session.get('vendorCode');
       Session.set('draftSKU', sku);
       console.log("sku: ", sku);
@@ -57,6 +56,10 @@ Template.productSubmit.events({
     console.log("product_type change event");
     Session.set('product_type', template.find('#product_type').value);
     updateSKU();
+  },
+
+  'click #cancel': function () {
+    Router.go('home');
   },
 
   'submit form': function (e) {
