@@ -8,19 +8,30 @@
         {{> pageTitle }}
 
         <form name="product" class="form-horizontal" role="form">
-<!--
             <div class="form-group">
                 <label for="family" class="col-sm-2 control-label">Sku Prefix</label>
                 <div class="col-sm-10">
                     <input type="text" name="family" class="form-control" value="{{ draftSKU }}" id="family" placeholder="e.g. 01-NS-90021-3">
                 </div>
             </div>
--->
 
+<!--
             <div class="form-group">
                 <label for="title" class="col-sm-2 control-label">Product Name</label>
                 <div class="col-sm-10">
                     <input type="text" name="title" class="form-control" id="title" placeholder="e.g. Striped Long-sleeve Henley Tee">
+                </div>
+            </div>
+-->
+            <div class="form-group">
+                <label for="product_type" class="col-sm-2 control-label">Vendor</label>
+                <div class="col-sm-10">
+                    <select class="form-control" name="title" id="title">
+                        <option value=""></option>
+                        {{#each vendors }}
+                        <option value="{{ code }}">{{ vendor }}</option>
+                        {{/each }}
+                    </select>
                 </div>
             </div>
 
@@ -29,6 +40,10 @@
                 <div class="col-sm-10">
                     <select class="form-control" name="product_type" id="product_type">
                         <option value=""></option>
+                        {{#each productTypes }}
+                        <option value="{{ code }}">{{ product_type }}</option>
+                        {{/each }}
+<!--
                         <option value="01">Accessories</option>
                         <option value="02">Denim</option>
                         <option value="03">Dresses</option>
@@ -38,16 +53,19 @@
                         <option value="07">Skirts</option>
                         <option value="08">Sweaters</option>
                         <option value="09">Tops</option>
+-->
                     </select>
                 </div>
             </div>
 
+<!--
             <div class="form-group">
                 <label for="vendor" class="col-sm-2 control-label">Vendor</label>
                 <div class="col-sm-10">
                     <input type="text" name="vendor" class="form-control" id="vendor" placeholder="e.g. Alternate Apparel">
                 </div>
             </div>
+-->
 
             <div class="form-group">
                 <label for="season" class="col-sm-2 control-label">Season</label>

@@ -1,24 +1,64 @@
 /**
  * Created by mageemooney on 5/4/14.
  */
+var colors = NPM.require('colors');
+
 Template.productSubmit.helpers({
-  draftSKU: function(e, template) {
-    var yr = new Date().getFullYear();
-    var sku;
-    Meteor.autoRun(function(){
-      Deps.autoRun(function(){
-        sku = (Session.get('product_type') || '') + '-' + yr + Session.get('season') + '-' + Session.get('vendorCode');
-        console.log('sku: ', sku);
-        return sku;
-      });
+  vendors: function() {
+    return Vendors.find({});
+  },
+
+  seasons: function () {
+    Meteor.call('getSeasons', function(error, result) {
+      if (error) {
+        return '';
+      } else {
+        return result;;
+      }
     });
+  },
+
+  draftSKU: function(e, template) {
+
+    return Session.get('draftSKU');
   }
 });
+
+function updateSKU() {
+  console.log("running updateSKU");
+
+  var yr = new Date().getFullYear();
+  yr = yr.toString().substr(2,2);
+
+  console.log("year: ", yr);
+
+//  Meteor.autoRun(function(){
+//    Deps.autoRun(function(){
+      console.log("running Deps.autorun".underline.red);
+      sku = (Session.get('product_type') || '') + '-' + yr + Session.get('season') + '-' + Session.get('vendorCode');
+      Session.set('draftSKU', sku);
+      console.log("sku: ", sku);
+//    });
+//  });
+};
+
+function getVendorCode(vendor) {
+  Vendors.find({name: vendor});
+};
 
 Template.productSubmit.events({
   'change #season': function (e, template) {
     e.preventDefault();
+    console.log("season change event");
     Session.set('season', template.find('#season').value);
+    updateSKU();
+  },
+
+  'change #product_type': function (e, template) {
+    e.preventDefault();
+    console.log("product_type change event");
+    Session.set('product_type', template.find('#product_type').value);
+    updateSKU();
   },
 
   'submit form': function (e) {
