@@ -3,10 +3,10 @@
  */
 
 Meteor.startup(function () {
-  Products.remove({});
-  Variants.remove({});
-  Colors.remove({});
-  Vendors.remove({});
+//  Products.remove({});
+//  Variants.remove({});
+//  Colors.remove({});
+//  Vendors.remove({});
 
   if (Seasons.find().count() === 0 ) {
     Seasons.insert({code: 'NS', season: 'no season', comboBox: true});
