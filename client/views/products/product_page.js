@@ -30,6 +30,7 @@ Template.productPage.events({
 Template.productPage.helpers({
    variants:  function() {
      return Variants.find({productId: this._id});
+//     return Variants.find();
    },
 
   variantsCount: function() {
