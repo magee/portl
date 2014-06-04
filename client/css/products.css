@@ -2,20 +2,22 @@
   height        : 520px;
   overflow-x    : hidden;
 }
+.product span#editButtons {
+  padding-left: 20px;
+  font-size: .75em;
+  text-align: right;
+  color: darkslategray;
+}
+h3#productTitle {
+  margin-top: 0px;
+  display: inline;
+}
 .product .label {
   color         : darkslategray;
   display       : inline-block;
-  width         : 75px;
+  /*width         : 75px;*/
   text-align    : left;
-  padding-left  : 10px;
-}
-.product table, .product table.table td {
-  margin-left: 0;
-  text-align: left;
-  border: 3px black solid;
-}
-.currency {
-  text-align: right;
+  /*padding-left  : 10px;*/
 }
 #productFooter {
   position: absolute;
@@ -28,8 +30,16 @@
 #productContent {
   position: absolute;
   top: 50px;
+  left: 0px;
+  right: 0px;
+  height: 120px;
+  overflow: auto;
+}
+#productVariants {
+  position: absolute;
+  top: 170px;
   bottom: 60px;
   left: 0px;
   right: 0px;
-  overflow: hidden;
+  overflow: auto;
 }

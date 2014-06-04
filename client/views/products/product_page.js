@@ -28,11 +28,6 @@ Template.productPage.events({
 });
 
 Template.productPage.helpers({
-   variants:  function() {
-//     return Variants.find({productId: this._id});
-     return Variants.find();
-   },
-
   variantsCount: function() {
     return Variants.find().count();
   },
@@ -42,4 +37,11 @@ Template.productPage.helpers({
     return this.userId == Meteor.userId();
   }
 
+});
+
+Template.productVariants.helpers({
+  variants:  function() {
+//     return Variants.find({productId: this._id});
+    return Variants.find();
+  }
 });
