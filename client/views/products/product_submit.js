@@ -1,8 +1,6 @@
 /**
  * Created by mageemooney on 5/4/14.
  */
-var colors = NPM.require('colors');
-
 Template.productSubmit.helpers({
   vendors: function() {
     return Vendors.find({});

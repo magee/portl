@@ -5,6 +5,7 @@
     "bootstrap-3": {},
     "accounts-ui-bootstrap-3": {},
     "typeahead": {},
-    "fontawesome4": {}
+    "fontawesome4": {},
+    "require": {}
   }
 }

@@ -7,7 +7,8 @@
       "bootstrap-3": {},
       "accounts-ui-bootstrap-3": {},
       "typeahead": {},
-      "fontawesome4": {}
+      "fontawesome4": {},
+      "require": {}
     },
     "packages": {
       "iron-router": {
@@ -39,6 +40,11 @@
         "git": "https://github.com/chrismbeckett/meteor-fontawesome4.git",
         "tag": "v1.0.0",
         "commit": "fe38ec775e974f0f7855d1693dc74fd4f1b4848c"
+      },
+      "require": {
+        "git": "https://github.com/tomconnors/meteor-require.git",
+        "tag": "v0.1.0",
+        "commit": "b9c5a87e9f92019cca882234086b7d32719f67e2"
       },
       "blaze-layout": {
         "git": "https://github.com/EventedMind/blaze-layout.git",
