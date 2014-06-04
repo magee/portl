@@ -31,3 +31,7 @@
 .variants .variantTitle {
   font-weight: bold;
 }
+.productVariants {
+  height: 500px;
+  overflow-y: auto;
+}
