@@ -49,7 +49,6 @@ Template.productVariants.helpers({
   },
 
   variants:  function() {
-//     return Variants.find({productId: this._id});
-    return Variants.find();
+    return Variants.find({productId: this._id});
   }
 });
