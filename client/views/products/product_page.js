@@ -29,12 +29,12 @@ Template.productPage.events({
 
 Template.productPage.helpers({
    variants:  function() {
-     return Variants.find({productId: this._id});
-//     return Variants.find();
+//     return Variants.find({productId: this._id});
+     return Variants.find();
    },
 
   variantsCount: function() {
-    return Variants.find({productId: this._id}).count();
+    return Variants.find().count();
   },
 
   ownsProduct: function() {

@@ -16,7 +16,7 @@ Meteor.publish('product', function (productID){
 });
 
 Meteor.publish('variants', function (productId) {
-  return Variants.find({productId: productId});
+  return Variants.find();
 });
 
 Meteor.publish('productCount', function () {
