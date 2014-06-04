@@ -14,8 +14,11 @@ Products = new Meteor.Collection('products');
 
 //TODO revise code to check if user is admin to allow edits (pg 137)
 Products.allow({
-  update: ownsDocument,
-  remove: ownsDocument
+  update: function() { return true},
+  remove: function() { return true}
+// TODO: restore rights code modified to consider role instead of ownership
+//  update: ownsDocument,
+//  remove: ownsDocument
 });
 
 // TODO: get the next productNo - must be run on server where it has access to entire collection
@@ -59,17 +62,7 @@ if (Meteor.isServer) {
 //        }
 //      });
     },
-    updateProduct : function(productAttributes, productId) {
 
-      Products.update(productId, {$set: productAttributes}, function (error) {
-        if (error) {
-          throwError(error.reason);
-//        } else {
-//          Router.go('productPage', {_id: currentProductId});
-        }
-          Router.go('productPage', {_id: productId});
-      });
-    },
     deleteProduct : function(productId) {
       //remove all related variants
       Variants.remove({productId: productId}, function(error) {
