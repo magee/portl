@@ -9,7 +9,6 @@
  * Example:  Product:  Striped seersucker suit
  *           Variants:   blue/6, blue/8, blue/10, cream/6, cream/12, etc.
  */
-var colors = Npm.require('colors');
 
 Products = new Meteor.Collection('products');
 
