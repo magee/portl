@@ -6,6 +6,7 @@
     "accounts-ui-bootstrap-3": {},
     "typeahead": {},
     "fontawesome4": {},
-    "require": {}
+    "require": {},
+    "kadira": {}
   }
 }
