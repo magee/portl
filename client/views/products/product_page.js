@@ -7,7 +7,6 @@ Template.productPage.events({
     e.preventDefault();
 
     if (confirm('This will delete the product and all its variants.  Continue?')) {
-
       Meteor.call('deleteProduct', this._id, function(error, id) {
 
         if (error) {
@@ -23,7 +22,6 @@ Template.productPage.events({
 
       Router.go('productsList');
     }
-
   }
 });
 
@@ -49,6 +47,6 @@ Template.productVariants.helpers({
   },
 
   variants:  function() {
-    return Variants.find({productId: this._id});
+    return Variants.find();
   }
 });
