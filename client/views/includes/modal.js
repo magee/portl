@@ -1,6 +1,7 @@
 /**
  * Created by mageemooney on 6/6/14.
  */
+//TODO: modify this and associated .html page to take dynamic content and guard with default
 Template.modal.helpers({
   content: {
     notAvailable: function () {
@@ -45,11 +46,11 @@ Template.modal.events({
 
 var okayBtn = {
   label: 'OK',
-  isPrimary: TRUE
+  isPrimary: true
 };
 
 var saveBtn = {
   label: 'Save',
-  isPrimary: FALSE
+  isPrimary: false
 };
 
