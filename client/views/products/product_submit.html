@@ -1,11 +1,6 @@
 <template name='productSubmit'>
     <div class="pageContainer">
-        <div class="breadcrumbs">
-            <!--TODO: abstract and put into views/includes-->
-            / <a href="{{pathFor 'home' }}">home</a> / <a href="{{pathFor 'productsList' }}">products</a> / New Product
-        </div>
-
-        {{> pageTitle }}
+        <h1>{{> pageTitle }}</h1>
 
         <form name="product" class="form-horizontal" role="form">
             <div class="form-group">
@@ -15,14 +10,12 @@
                 </div>
             </div>
 
-<!--
             <div class="form-group">
                 <label for="title" class="col-sm-2 control-label">Product Name</label>
                 <div class="col-sm-10">
                     <input type="text" name="title" class="form-control" id="title" placeholder="e.g. Striped Long-sleeve Henley Tee">
                 </div>
             </div>
--->
             <div class="form-group">
                 <label for="product_type" class="col-sm-2 control-label">Vendor</label>
                 <div class="col-sm-10">
@@ -40,10 +33,9 @@
                 <div class="col-sm-10">
                     <select class="form-control" name="product_type" id="product_type">
                         <option value=""></option>
-                        {{#each productTypes }}
-                        <option value="{{ code }}">{{ product_type }}</option>
-                        {{/each }}
-<!--
+                        <!--{{#each productTypes }}-->
+                        <!--<option value="{{ code }}">{{ product_type }}</option>-->
+                        <!--{{/each }}-->
                         <option value="01">Accessories</option>
                         <option value="02">Denim</option>
                         <option value="03">Dresses</option>
@@ -53,7 +45,6 @@
                         <option value="07">Skirts</option>
                         <option value="08">Sweaters</option>
                         <option value="09">Tops</option>
--->
                     </select>
                 </div>
             </div>
