@@ -1,35 +1,33 @@
 <template name="home">
     {{ #if currentUser }}
-    <h2>Staff Portal</h2>
     <div class="container-fixed menuBox col-sm-10 col-sm-offset-1">
         <div class="graphical-menu">
             <div class="row">
-                <div class="menuItem col-sm-3">
+                <div class="menuItem">
                     <a href="{{pathFor 'productsList'}}"><i class="fa fa-tags fa-5x"></i><br />All Products</a>
                 </div>
-                <div class="menuItem col-sm-3">
+                <div class="menuItem">
                     <a href="{{pathFor 'productsSubmit'}}"><i class="fa fa-tag fa-5x"></i><br />New Product</a>
                 </div>
-                <div class="menuItem col-sm-3">
-                    <a href="#"><i class="fa fa-users fa-5x"></i></a>
+                <div class="menuItem">
+                    <a href="#"><i class="fa fa-users fa-5x"></i><br />Users</a>
                 </div>
-                <div class="menuItem col-sm-3">
-                    <a href="#"><i class="fa fa-user fa-5x"></i></a>
+                <div class="menuItem">
+                    <a href="#"><i class="fa fa-user fa-5x"></i><br />New User</a>
                 </div>
-
-                <div class="menuItem col-sm-3">
+                <div class="menuItem">
                     <a href="{{pathFor 'calendar'}}"><i class="fa fa-calendar fa-5x"></i><br />Calendar</a>
                 </div>
-                <div class="menuItem col-sm-3">
+                <div class="menuItem">
                     <a href="{{pathFor 'productsList'}}"><i class="fa fa-users fa-5x"></i><br />Clients</a>
                 </div>
-                <div class="menuItem col-sm-3">
+                <div class="menuItem">
                     <a href="{{pathFor 'productsList'}}"><i class="fa fa-dollar fa-5x"></i><br />Orders</a>
                 </div>
-                <div class="menuItem col-sm-3">
+                <div class="menuItem">
                     <a
                        data-toggle="modal"
-                       data-target="#modal" href="#"><i class="fa fa-tags fa-5x"></i></a>
+                       data-target="#modal" href="#"><i class="fa fa-tags fa-5x"></i><br />Modal Test</a>
                 </div>
             </div>
         </div>
