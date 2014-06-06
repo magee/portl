@@ -1,3 +1,7 @@
+@headerHeight: 50px;
+@productBoxHeight: 120px;
+@footerHeight: 60px;
+
 .products {
   height        : 520px;
   overflow-x    : hidden;
@@ -24,22 +28,23 @@ h3#productTitle {
   bottom: 0px;
   left: 0px;
   right: 0px;
-  height: 53px;
+  height: @footerHeight - 7;
   overflow: hidden;
 }
 #productContent {
   position: absolute;
-  top: 50px;
+  top: @headerHeight + 15px;
   left: 0px;
   right: 0px;
-  height: 120px;
+  height: @productBoxHeight;
   overflow: auto;
 }
 #productVariants {
   position: absolute;
-  top: 170px;
-  bottom: 60px;
+  top: @productBoxHeight + @headerHeight + 20;
+  bottom: @footerHeight;
   left: 0px;
   right: 0px;
   overflow: auto;
 }
+
