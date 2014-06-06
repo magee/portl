@@ -45,11 +45,11 @@ Template.modal.events({
 
 var okayBtn = {
   label: 'OK',
-  isPrimary: TRUE
+  isPrimary: true
 };
 
 var saveBtn = {
   label: 'Save',
-  isPrimary: FALSE
+  isPrimary: false
 };
 
