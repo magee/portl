@@ -66,11 +66,21 @@ Template.productSubmit.events({
     e.preventDefault();
 
     var user = Meteor.user();
+    var productNo;
+
+    productNo = Meteor.call('getNextProductNo', $(e.target).find('[name=vendor]').val(), function(error, result) {
+      if (error) {
+        //TODO: add error handling
+        return 'error';
+      } else {
+        return result;
+      }
+    });
 
     var thisYear = new Date().getFullYear();
-    console.log(thisYear);
     thisYear = thisYear - 2000;
-    Session.set('sku-prefix', $(e.target).find('[name=product_type]').val() + '-' + thisYear + $(e.target).find('[name=season]').val() + '-' + $(e.target).find('[name=vendor]').val() + '-' + 'n');
+
+    Session.set('sku-prefix', $(e.target).find('[name=product_type]').val() + '-' + thisYear + $(e.target).find('[name=season]').val() + '-' + $(e.target).find('[name=vendor]').val() + '-' + productNo);
 
     var product = {
       family        : Session.get('sku-prefix'),
@@ -94,6 +104,7 @@ Template.productSubmit.events({
 //
 //     Meteor.call('callShopifyAPI', APIRequest);
      Meteor.call('addProduct', product, function(error, id) {
+       debugger;
        //TODO: review error handling
         if (error) {
           console.log(error);
@@ -104,7 +115,10 @@ Template.productSubmit.events({
           }
 
         } else {
-          Router.go('productPage', {_id: id});
+//          console.log("product id returned: ", id);
+            if (id) {
+              Router.go('productPage', {_id: id});
+            }
         }
      });
    }

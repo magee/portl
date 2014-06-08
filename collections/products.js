@@ -14,8 +14,8 @@ Products = new Meteor.Collection('products');
 
 //TODO revise code to check if user is admin to allow edits (pg 137)
 Products.allow({
-  update: function() { return true},
-  remove: function() { return true}
+  update: function () { return true; },
+  remove: function () { return true; }
 // TODO: restore rights code modified to consider role instead of ownership
 //  update: ownsDocument,
 //  remove: ownsDocument
@@ -31,57 +31,70 @@ Products.allow({
 //    return Products.find().count();
 //  }
 
-if (Meteor.isServer) {
-  Meteor.methods({
-    addProduct: function(productAttributes) {
+Meteor.methods({
+  addProduct: function (productAttributes) {
+    debugger;
+    // TODO: review to find out what I was doing here
+//    var productWithSameFamily = Products.findOne({ family: productAttributes.family });
 
-      productWithSameFamily = Products.findOne({ family: productAttributes.family });
+//    if (!user) {
+//      //TODO: Reinstate user authentication requirement
+//      //TODO: Find out where these errors are caught.
+//      throw new Meteor.Error(401, 'You must be logged in to create new products.');
+//    }
 
-//      if (!user) {
-//        //TODO Find out where these errors are caught.
-//        throw new Meteor.Error(401, 'You must be logged in to create new products.');
-//      }
+//    TODO: implement form validation.  Having removed (Meteor.isServer) wrapper, this will be both client side and server side validation.
+//    if (!productAttributes.title) {
+//      throw new Meteor.Error(422, 'A Product title is required');
+//    }
 //
-      // TODO: change to client side validation.
-      if (!productAttributes.title) {
-        throw new Meteor.Error(422, 'A Product title is required');
+//    if (productAttributes.family && productWithSameFamily) {
+//      throw new Meteor.Error(302, 'This product has already been created', productWithSameFamily._id);
+//    }
+    var productId;
+
+    //TODO: review syntax -- Write tests
+    Products.insert(productAttributes, function (error, result) {
+      if (error) {
+        throwError(error.reason);
+      } else {
+        Vendors.update({code: productAttributes.vendor}, {$inc: {highestProductNo: 1}}, function (error, vendorId) {
+          if (error) {
+            //TODO: review and refactor product rollback and error handling
+            // if Vendor's highestProductNo can't be updated, don't store product -- otherwise will create duplicate SKUs
+            Products.remove(result);
+            throwError(error.reason);
+            return null;
+          } else {
+            productId = result;
+          }
+        });
       }
+      return productId;
+    });
+  },
 
-      if (productAttributes.family && productWithSameFamily) {
-        throw new Meteor.Error(302, 'This product has already been created', productWithSameFamily._id);
+  getNextProductNumber: function (vendor) {
+    var highestProductNo = Vendors.find({code: vendor}, {fields: {highestProductNo: 1}});
+    return highestProductNo++ || 0;
+  },
+
+  deleteProduct : function(productId) {
+    //remove all related variants
+    Variants.remove({productId: productId}, function(error) {
+      if (error) {
+        throwError(error.reason);
       }
+    });
 
-      return Products.insert(productAttributes);
-
-      //TODO: reinstate error checking.
-//      Products.insert(productAttributes, function (error, id) {
-//        if (error) {
-//          throwError(error.reason);
-//        } else {
-//          return id;
-//        }
-//      });
-    },
-
-    deleteProduct : function(productId) {
-      //remove all related variants
-      Variants.remove({productId: productId}, function(error) {
-        if (error) {
-          throwError(error.reason);
-        }
-      });
-
-      Products.remove(productId, function(error) {
-        if (error) {
-          throwError(error.reason);
+    Products.remove(productId, function(error) {
+      if (error) {
+        throwError(error.reason);
 //        } else {
 //          Router.go('productsList');
-        }
-      });
-      Router.go('productsList');
-    }
-  });
-}
-
-
+      }
+    });
+    Router.go('productsList');
+  }
+});
 
