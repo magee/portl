@@ -9,7 +9,8 @@
       "typeahead": {},
       "fontawesome4": {},
       "require": {},
-      "kadira": {}
+      "kadira": {},
+      "autocomplete": {}
     },
     "packages": {
       "iron-router": {
@@ -49,13 +50,23 @@
       },
       "kadira": {
         "git": "https://github.com/meteorhacks/kadira.git",
-        "tag": "v2.1.3",
-        "commit": "ebf969395e6a834a790b9899cd8538dfc9f665f8"
+        "tag": "v2.1.5",
+        "commit": "1d33f51a7228fc430fb1823276fcfeeb6f251255"
+      },
+      "autocomplete": {
+        "git": "https://github.com/mizzao/meteor-autocomplete.git",
+        "tag": "v0.4.5",
+        "commit": "48a706f0055939ac9e05dd619ad6d4df3dcc237d"
       },
       "blaze-layout": {
         "git": "https://github.com/EventedMind/blaze-layout.git",
         "tag": "v0.2.4",
         "commit": "b40e9b0612329288d75cf52ad14a7da64bb8618f"
+      },
+      "caret-position": {
+        "git": "https://github.com/StockBase/meteor-caret-position.git",
+        "tag": "v2.1.0-3",
+        "commit": "6028cf980f62cbf72cb2ea527091a3a31f87b8a7"
       }
     }
   }
