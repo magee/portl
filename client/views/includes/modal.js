@@ -26,12 +26,17 @@ Template.modal.helpers({
       }
     }
   },
-  default: function () {
-      return {
-        title: 'Placeholder Title',
-        body : 'Placeholder content.  Please notify the system administrator that an alert has placeholder content.',
-        buttons:  [okayBtn, saveBtn]
-      }
+  default: function (attributes) {
+    var values = attributes || {
+      title: 'Placeholder Title',
+      body:   'Placeholder content.  Please notify the system administrator that an alert has placeholder content.',
+      buttons:  [okayBtn, saveBtn]
+    }
+    return {
+      title: values.title,
+      body : values.body,
+      buttons:  values.buttons
+    }
   },
   debug: function () {
     return Session.get('inDebugMode') || false;
