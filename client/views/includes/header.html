@@ -16,8 +16,14 @@
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav">
                     {{ #if currentUser }}
-                        <!--<li><a class="active" href="{{pathFor 'productSubmit'}}">New</a></li>-->
+                        <li><a class="active" href="{{pathFor 'productSubmit'}}">New Product</a></li>
+                        {{ #if currentPageNav }}
+                            {{ #each menuItems }}
+                                <li><a href="{{ navPath }}">{{ navTitle }}</a></li>
+                            {{ /each }}
+                        {{ /if }}
                     {{ /if }}
+
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
                     <li class="dropdown dropdown-toggle" data-toggle="dropdown">{{> loginButtons }}</li>
@@ -28,13 +34,14 @@
                         </ul>
                     </li>
                 </ul>
-            </div><!-- /.navbar-collapse -->
-<!--            <ol class="breadcrumb {{#if hideBreadcrumbs }}hidden{{/if }}">
-                {{#each paths}}
-                <li><a href="{{.}}">{{.}}</a></li>
-                {{/each }}
-                &lt;!&ndash;<li class="active">Placeholder</li>&ndash;&gt;
-            </ol>-->
+            </div>
+            <!-- /.navbar-collapse -->
+            <!--<ol class="breadcrumb {{#if hideBreadcrumbs }}hidden{{/if }}">-->
+                <!--{{#each paths}}-->
+                    <!--<li><a href="{{.}}">{{.}}</a></li>-->
+                <!--{{/each }}-->
+            <!--</ol>-->
+
         </div><!-- /.container-fluid -->
     </nav>
 
