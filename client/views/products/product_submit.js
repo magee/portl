@@ -109,7 +109,6 @@ Template.productSubmit.events({
 //
 //     Meteor.call('callShopifyAPI', APIRequest);
      Meteor.call('addProduct', product, function(error, id) {
-       debugger;
        //TODO: review error handling
         if (error) {
           console.log(error);
