@@ -51,6 +51,7 @@ Meteor.methods({
     return Variants.insert(variant);
   },
   deleteVariant: function(variantID) {
+    //TODO: debug routing error (in console) after delete
     Variants.remove(variantID);
   }
 });
