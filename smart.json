@@ -8,6 +8,7 @@
     "fontawesome4": {},
     "require": {},
     "kadira": {},
-    "autocomplete": {}
+    "autocomplete": {},
+    "masonrify": {}
   }
 }
