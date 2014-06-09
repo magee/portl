@@ -17,45 +17,63 @@ Template.productSubmit.helpers({
   },
 
   draftSKU: function(e, template) {
-
     return Session.get('draftSKU');
   }
 });
 
 function updateSKU() {
-  console.log("running updateSKU");
-
+  //TODO: correct draftSKU to be reactive instead of calling this function.
   var yr = new Date().getFullYear();
   yr = yr.toString().substr(2,2);
 
-  console.log("year: ", yr);
-
-//  Meteor.autoRun(function(){
-//    Deps.autoRun(function(){
-      sku = (Session.get('product_type') || '') + '-' + yr + Session.get('season') + '-' + Session.get('vendorCode');
-      Session.set('draftSKU', sku);
-      console.log("sku: ", sku);
-//    });
-//  });
+  sku = (Session.get('product_type') || '') + '-' + yr + Session.get('season') + '-' + Session.get('vendorCode') + '-' + Session.get('productNo');
+  Session.set('draftSKU', sku);
+  console.log("sku: ", sku, "  draftSKU: ", Session.get('draftSKU'));
 };
 
-function getVendorCode(vendor) {
-  Vendors.find({name: vendor});
+function getVendor(vendor) {
+  Vendors.findOne({name: vendor});
+};
+
+Template.vendor.settings = function() {
+  return {
+    position: "bottom",
+    limit: 10,
+    rules: [
+      {
+        collection: Vendors,
+        field: "code",
+        template: Template.vendorItem,
+        noMatchTemplate: Template.noVendorFound
+      }
+    ]
+  };
 };
 
 Template.productSubmit.events({
   'change #season': function (e, template) {
     e.preventDefault();
-    console.log("season change event");
     Session.set('season', template.find('#season').value);
     updateSKU();
   },
 
   'change #product_type': function (e, template) {
     e.preventDefault();
-    console.log("product_type change event");
     Session.set('product_type', template.find('#product_type').value);
     updateSKU();
+  },
+
+  'blur #vendor': function (e, template) {
+    e.preventDefault();
+    Session.set('vendorCode', template.find('#vendor').value);
+    Meteor.call('getLastProductNo', Session.get('vendorCode'), function(error, result){
+      if (error) {
+        console.log("error");
+      } else {
+        Session.set('productNo', ++result);
+        updateSKU();
+      }
+    });
   },
 
   'click #cancel': function () {
@@ -66,24 +84,10 @@ Template.productSubmit.events({
     e.preventDefault();
 
     var user = Meteor.user();
-    var productNo;
-
-    productNo = Meteor.call('getNextProductNo', $(e.target).find('[name=vendor]').val(), function(error, result) {
-      if (error) {
-        //TODO: add error handling
-        return 'error';
-      } else {
-        return result;
-      }
-    });
-
-    var thisYear = new Date().getFullYear();
-    thisYear = thisYear - 2000;
-
-    Session.set('sku-prefix', $(e.target).find('[name=product_type]').val() + '-' + thisYear + $(e.target).find('[name=season]').val() + '-' + $(e.target).find('[name=vendor]').val() + '-' + productNo);
+    var thisYear = new Date().getFullYear() - 2000;  // returns two digit year
 
     var product = {
-      family        : Session.get('sku-prefix'),
+      family        : Session.get('draftSKU'),
       title         : $(e.target).find('[name=title]').val(),
       vendor        : $(e.target).find('[name=vendor]').val(),
       product_type  : $(e.target).find('[name=product_type]').val(),
@@ -94,6 +98,7 @@ Template.productSubmit.events({
       author        : user.username,
       createdAt     : new Date().getTime()
     };
+
 
 //     var APIRequest = {
 //       verb   : 'POST',
@@ -115,10 +120,10 @@ Template.productSubmit.events({
           }
 
         } else {
-//          console.log("product id returned: ", id);
-            if (id) {
-              Router.go('productPage', {_id: id});
-            }
+          console.log('submit form meteor call return id: ', id);
+          if (Meteor.isClient) {
+            Router.go('productPage', {_id: id});
+          }
         }
      });
    }

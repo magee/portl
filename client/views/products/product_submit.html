@@ -16,15 +16,11 @@
                     <input type="text" name="title" class="form-control" id="title" placeholder="e.g. Striped Long-sleeve Henley Tee">
                 </div>
             </div>
+
             <div class="form-group">
                 <label for="product_type" class="col-sm-2 control-label">Vendor</label>
                 <div class="col-sm-10">
-                    <select class="form-control" name="title" id="title">
-                        <option value=""></option>
-                        {{#each vendors }}
-                        <option value="{{ code }}">{{ vendor }}</option>
-                        {{/each }}
-                    </select>
+                    {{ > vendor }}
                 </div>
             </div>
 
@@ -48,15 +44,6 @@
                     </select>
                 </div>
             </div>
-
-<!--
-            <div class="form-group">
-                <label for="vendor" class="col-sm-2 control-label">Vendor</label>
-                <div class="col-sm-10">
-                    <input type="text" name="vendor" class="form-control" id="vendor" placeholder="e.g. Alternate Apparel">
-                </div>
-            </div>
--->
 
             <div class="form-group">
                 <label for="season" class="col-sm-2 control-label">Season</label>
@@ -99,4 +86,16 @@
             </div>
         </form>
     </div>
+</template>
+
+<template name="vendor">
+    {{> inputAutocomplete settings=settings id="vendor" name="vendor" class="form-control" placeholder="enter vendor name to search"}}
+</template>
+
+<template name="vendorItem">
+    {{ code }} - {{ vendor }}
+</template>
+
+<template name="noVendorFound">
+    No vendors names begin with that text.
 </template>

@@ -19,10 +19,10 @@ Meteor.methods({
       var newResult = {'code': seasons[i].code, 'season': seasons[i].season};
       results.push(newResult);
     }
-
     return results;
   },
   getCategories: function () {
+    //TODO: review this code and remove extra crap
 //    return ProductTypes.find() || {};
     return ProductTypes.find();
 
@@ -32,8 +32,8 @@ Meteor.methods({
     for (var i = 0; i < productTypes.length; i++) {
       results.push({code: productTypes[i].code, season: productTypes[i].product_type});
     }
-
     return results;
+
   }
 
 });
