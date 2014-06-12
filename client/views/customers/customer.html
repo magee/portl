@@ -1,0 +1,12 @@
+<!-- Item template for customers list page -->
+<template name='customer'>
+    <tr>
+        <td>{{ shopifyRecord.first_name }} {{ shopifyRecord.last_name }}</td>
+        <td class="center">{{#if isEnabled this }}<i class="fa fa-check fa-sm"></i>{{ else }}<button class="activate">activate</button>{{ /if }}</td>
+        <!--<td class="center">{{#if isPortalEnabled this }}<i class="fa fa-check fa-sm"></i>{{ else }}<button class="activate">invite</button>{{ /if }}</td>-->
+        <td class="center">{{ shopifyRecord.orders_count }}</td>
+        <td class="currency">{{ shopifyRecord.total_spent }}</td>
+        <td></td>
+    </tr>
+</template>
+
