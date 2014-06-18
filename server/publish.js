@@ -2,15 +2,10 @@
  * Created by mageemooney on 5/4/14.
  */
 
-Meteor.publish('products', function(productCursor){
-//  return Products.find({}, {limit: countPerPage, skip: productCursor});
-  return Products.find({},{
-    skip: productCursor,
-    limit: 4,
-    sort: {vendor: 1, sku: 1}
-  });
-//  return Products.find({}, {limit: 5, skip: productPage});
+Meteor.publish('products', function(){
+  return Products.find();
 });
+
 Meteor.publish('product', function (productID){
   return Products.find(productID);
 });
