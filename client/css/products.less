@@ -39,7 +39,15 @@ h3#productTitle {
   height: @productBoxHeight;
   overflow: auto;
 }
-#productVariants {
+#productContent, #productsList {
+  position: absolute;
+  top: @headerHeight + 15px;
+  bottom: @footerHeight;
+  left: 0px;
+  right: 0px;
+  overflow: auto;
+}
+#productVariants, #productItems {
   position: absolute;
   top: @productBoxHeight + @headerHeight + 20;
   bottom: @footerHeight;

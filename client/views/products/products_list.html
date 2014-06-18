@@ -1,13 +1,28 @@
+<!--<template name="productsList">-->
 <template name="productsList">
     {{ #if currentUser }}
-    <!--<h1>{{> pageTitle }}</h1>-->
-<!--            <p>Product Count: {{ getProductCount }}</p>-->
-    <!--TODO: Add batch updating to products list-->
-        <div class="products">
-            {{#each products}}
-            {{> productItem}}
-            {{/each}}
+        <!--<h1>{{> pageTitle }}</h1>-->
+    <!--            <p>Product Count: {{ getProductCount }}</p>-->
+        <!--TODO: Add batch updating to products list-->
+        <div class="productsList">
+            <table class="table table-striped">
+                <thead>
+                <td class="col-sm-1"></td>
+                <td class="col-sm-2">Title</td>
+                <td class="col-sm-2">SKU</td>
+                <td class="col-sm-1">Qty</td>
+                <td class="col-sm-1 currency">Cost</td>
+                <td class="col-sm-1 currency">Price</td>
+                <td class="col-sm-2"></td>
+                </thead>
+                <tbody>
+                {{#each products }}
+                {{> productItem }}
+                {{/each }}
+                </tbody>
+            </table>
         </div>
+
     {{ else }}
         <h1>Tog + Porter Stylist Portal</h1>
     {{/if }}
