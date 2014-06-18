@@ -43,8 +43,6 @@ Template.variantItem.events({
           if (error.error === 302) {
             Router.go('productPage', {_id: error.details});
           }
-        } else {
-          Router.go('productList');
         }
       });
 
