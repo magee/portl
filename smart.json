@@ -9,6 +9,7 @@
     "require": {},
     "kadira": {},
     "autocomplete": {},
-    "masonrify": {}
+    "masonrify": {},
+    "autoform": {}
   }
 }
