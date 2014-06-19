@@ -11,12 +11,12 @@
 
 <template name="productItem">
         <tr>
-            <td class="col-sm-2"><a href="{{pathFor 'productEdit'}}">{{ title }}</a></td>
+            <td class="col-sm-3"><a href="{{pathFor 'productEdit'}}">{{ title }}</a></td>
             <td class="col-sm-2">{{ vendorName }}</td>
-            <td class="col-sm-1">{{ family }}<input type="hidden" name="id" value="{{ _id }}"/></td>
+            <td class="col-sm-2">{{ family }}<input type="hidden" name="id" value="{{ _id }}"/></td>
             <td class="currency col-sm-1">{{ cost }}</td>
             <td class="currency col-sm-1">{{ price }}</td>
-            <td class="currency col-sm-2"><a href="#" class="delete"><i class="fa fa-trash-o fa-lg"></i></a> &nbsp; <a href="#" class="edit"><i class="fa fa-pencil fa-lg"></i></a></td>
+            <td class="currency col-sm-1"><a href="#" class="delete"><i class="fa fa-trash-o fa-lg"></i></a> &nbsp; <a href="#" class="edit"><i class="fa fa-pencil fa-lg"></i></a></td>
         </tr>
 </template>
 
