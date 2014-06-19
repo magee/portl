@@ -11,7 +11,7 @@
 
 <template name="productItem">
         <tr>
-            <td class="col-sm-3"><a href="{{pathFor 'productEdit'}}">{{ title }}</a></td>
+            <td class="col-sm-3"><a href="{{pathFor 'productPage'}}">{{ title }}</a></td>
             <td class="col-sm-2">{{ vendorName }}</td>
             <td class="col-sm-2">{{ family }}<input type="hidden" name="id" value="{{ _id }}"/></td>
             <td class="currency col-sm-1">{{ cost }}</td>

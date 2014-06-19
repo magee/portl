@@ -1,10 +1,7 @@
 <template name='productEdit'>
     <div class="pageContainer">
         <div class="pageContainer">
-            <div class="breadcrumbs">
-                <!--TODO: abstract and put into views/includes-->
-                / <a href="{{pathFor 'home' }}">home</a> / <a href="{{pathFor 'productsList' }}">products</a> / {{ title }}
-            </div>
+            {{> breadcrumbs }}
             {{> pageTitle }}
 
             <form name="product" class="form-horizontal" role="form">

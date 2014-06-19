@@ -63,6 +63,7 @@ Template.productEdit.events({
   }
 });
 
+/*
 Template.select.selected_text = function() {
   var selected_option, text;
   if (this.selected_text == null) {
@@ -87,5 +88,7 @@ Template.productEdit.selectData = {
   include_blank: true,
   icon: 'player',
   name: 'players_required',
-  options: ({text: "#{i} players", value: i, selected: i == required} for i in [3..18])
+//  options: ({text: "#{i} players", value: i, selected: i == required}, for i in [3..18])
+  options: ({text: "#{i} players", value: i, selected: i == required})
 }
+*/

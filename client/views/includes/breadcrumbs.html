@@ -1,0 +1,9 @@
+<Template name="breadcrumbs">
+    <div class="breadcrumbs">
+        <ol class="breadcrumb">
+            {{ #each paths }}
+            <li><a href="{{ path }}" class="{{#if isActive }}active{{/if }}">{{ label }}</a></li>
+            {{ /each }}
+        </ol>
+    </div>
+</Template>
