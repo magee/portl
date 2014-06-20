@@ -12,26 +12,109 @@
 
 Products = new Meteor.Collection('products');
 
+// Consider adding custom messages: Product.simpleSchema().messages()
+
+Schemas.Product = new SimpleSchema({
+  title: {
+    type    : String,
+    label   : 'Product name',
+    max     : 200,
+    index   : true,
+    unique  : true
+  },
+  family: {
+    type    : String,
+    label   : 'SKU prefix',
+    max     : 50,
+    index   : true,
+    unique  : true
+  },
+  vendor: {
+    type    : String,
+    label   : 'Vendor code',
+    max     : 10
+  },
+  vendorName: {
+    type    : String,
+    label   : 'Vendor',
+    max     : 200,
+    index   : true
+  },
+  productNo : {
+    type    : Number,
+    label   : 'Product no',
+    min     : 1
+  },
+  product_type: {
+    type    : String,
+    label   : 'Product type',
+    max     : 50,
+    index   : true
+  },
+  cost: {
+    type    : String,
+    label   : 'Cost',
+    max     : 10
+  },
+  price : {
+    type    : String,
+    label   : 'Price',
+    max     : 10
+  },
+  userId: {
+    type    : String,
+    label   : 'userId',
+    max     : 20
+  },
+  archive : {
+    type      : Boolean,
+    label     : 'Archived',
+    optional  : true
+  },
+  variants: {
+    type      : [Object],
+    optional  : true
+  },
+  'variants.$.sku': {
+    type      : String,
+    index     : true,
+    unique    : true
+  },
+  'variants.$.title': {
+    type      : String,
+    index     : true,
+    unique    : true
+  },
+  'variants.$.color': {
+    type      : String
+  },
+  'variants.$.size': {
+    type      : String
+  },
+  'variants.$.createdAt': {
+    type      : Date
+  },
+  'variants.$.updatedAt': {
+    type      : Date
+  },
+  createdAt: {
+    type      : Date
+  },
+  updatedAt: {
+    type      : Date
+  }
+});
+
 //TODO revise code to check if user is admin to allow edits (pg 137)
 Products.allow({
-  update: function () { return true; },
-  remove: function () { return true; }
+  update      : function () { return true; },
+  remove      : function () { return true; }
+
 // TODO: restore rights code modified to consider role instead of ownership
 //  update: ownsDocument,
 //  remove: ownsDocument
 });
 
-// TODO: get the next productNo - must be run on server where it has access to entire collection
-//  getNextProductNumber: function(vendor) {
-//    var vendorProducts = Products.find({vendor: vendor}, {family: 1});
-//    console.log(vendorProducts)
-//    return 5;
-//  },
-//  getProductCount: function() {
-//    return Products.find().count();
-//  }
-
-//if (Meteor.isServer) {
   Meteor.methods({
     addProduct: function (productAttributes) {
       // TODO: review to find out what I was doing here
@@ -43,19 +126,23 @@ Products.allow({
 //      throw new Meteor.Error(401, 'You must be logged in to create new products.');
 //    }
 
-//TODO: implement form validation.  Having removed (Meteor.isServer) wrapper, this will be both client side and server side validation.
-//TODO: throws error but does not display it in form
-    if (!productAttributes.title) {
-      throw new Meteor.Error(422, 'A Product title is required');
-    }
-//
+      //TODO: implement form validation.  Having removed (Meteor.isServer) wrapper, this will be both client side and server side validation.
+      //TODO: throws error but does not display it in form
+      //TODO: NEXT!! Confirm this is not necessary with new Collection2 Schema implementation/validation
+      if (!productAttributes.title) {
+        throw new Meteor.Error(422, 'A Product title is required');
+      }
+  //
 //    if (productAttributes.family && productWithSameFamily) {
 //      throw new Meteor.Error(302, 'This product has already been created', productWithSameFamily._id);
 //    }
 
+      console.log(productAttributes.toString);
       //TODO: review syntax -- Write tests
       //TODO: As written synchronous -- server does not run synchronous code
       var productId = Products.insert(productAttributes);
+
+      console.log('what productId is returned?  ', productId);
 
       if (productId) {
         Vendors.update({code: productAttributes.vendor}, {$inc: {highestProductNo: 1}}, function (error, vendorId) {
@@ -64,14 +151,16 @@ Products.allow({
             //TODO: review and refactor product rollback and error handling
             // if Vendor's highestProductNo can't be updated, don't store product -- otherwise will create duplicate SKUs
             Products.remove(result);
+            console.log('if (productID) Vendors.update if (error) statement executes');
             throwError(error.reason);
             return null;
           }
         });
       } else {
+        console.log('if (productID) else statement throws error');
         throwError(error.reason);
       }
-//      Products.insert(productAttributes, function (error, result) {
+//        Products.insert(productAttributes, function (error, result) {
 //        if (error) {
 //          throwError(error.reason);
 //        } else {
@@ -87,6 +176,7 @@ Products.allow({
 //          return result;
 //        }
 //      });
+      return productId;
     },
 
     deleteProduct : function(productId) {
