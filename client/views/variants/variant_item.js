@@ -14,12 +14,12 @@ Template.variantItem.helpers({
 Template.variantItem.events({
   'click .edit': function (e) {
     e.preventDefault();
-    Session.set('editVariant', TRUE);
+    Session.set('editVariant', true);
   },
 
   'click .save': function (e) {
     e.preventDefault();
-    Session.set('editVariant', FALSE);
+    Session.set('editVariant', false);
   },
 
   'click tr': function(e, template){

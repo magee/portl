@@ -18,7 +18,13 @@ Template.variantSubmit.events({
 
     var $color  = $(e.target).find('[name=color]');
     var $size   = $(e.target).find('[name=size]');
+    //must add error handling when color is unrecognized.  Currently throws Uncaught TypeError: Cannot read property 'colorCode' of undefined
     var color = Colors.findOne({name: toTitleCase($color.val())}, {colorCode: 1}, {fields: {colorCode: 1}});
+
+    if (!color) {
+      //TODO: add new color handling
+      console.log('add color adding or checking code here');
+    }
 
     var variant = {
       sku       : template.data.family + '-' + color.colorCode + '-' + $size.val(),
