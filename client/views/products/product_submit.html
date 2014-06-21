@@ -4,6 +4,9 @@
 
         <h1>{{> pageTitle }}</h1>
 
+        {{> newProductForm }}
+
+<!--
         <form name="product" class="form-horizontal" role="form">
             <div class="form-group">
                 <label for="family" class="col-sm-2 control-label">Sku Prefix</label>
@@ -31,9 +34,9 @@
                 <div class="col-sm-10">
                     <select class="form-control" name="product_type" id="product_type">
                         <option value=""></option>
-                        <!--{{#each productTypes }}-->
-                        <!--<option value="{{ code }}">{{ product_type }}</option>-->
-                        <!--{{/each }}-->
+                        &lt;!&ndash;{{#each productTypes }}&ndash;&gt;
+                        &lt;!&ndash;<option value="{{ code }}">{{ product_type }}</option>&ndash;&gt;
+                        &lt;!&ndash;{{/each }}&ndash;&gt;
                         <option value="01">Accessories</option>
                         <option value="02">Denim</option>
                         <option value="03">Dresses</option>
@@ -57,10 +60,10 @@
                         <option value="SU">summer</option>
                         <option value="FA">winter</option>
                         <option value="WI">fall</option>
-                        <!--
+                        &lt;!&ndash;
                         only used for imported products
                         <option value="00">legacy</option>
-                        -->
+                        &ndash;&gt;
                     </select>
                 </div>
             </div>
@@ -87,6 +90,7 @@
                 </div>
             </div>
         </form>
+-->
     </div>
 </template>
 
@@ -100,4 +104,8 @@
 
 <template name="noVendorFound">
     No vendors names begin with that text.
+</template>
+
+<template name="newProductForm">
+    {{> quickForm collection="Products" id="newProductForm" type="insert" }}
 </template>

@@ -19,15 +19,13 @@ Schemas.Product = new SimpleSchema({
     type    : String,
     label   : 'Product name',
     max     : 200,
-    index   : true,
-    unique  : true
+    index   : true
   },
   family: {
     type    : String,
     label   : 'SKU prefix',
     max     : 50,
-    index   : true,
-    unique  : true
+    index   : true
   },
   vendor: {
     type    : String,
@@ -77,13 +75,11 @@ Schemas.Product = new SimpleSchema({
   },
   'variants.$.sku': {
     type      : String,
-    index     : true,
-    unique    : true
+    index     : true
   },
   'variants.$.title': {
     type      : String,
-    index     : true,
-    unique    : true
+    index     : true
   },
   'variants.$.color': {
     type      : String
@@ -96,14 +92,16 @@ Schemas.Product = new SimpleSchema({
   },
   'variants.$.updatedAt': {
     type      : Date
-  },
-  createdAt: {
-    type      : Date
-  },
-  updatedAt: {
-    type      : Date
+//  },
+//  createdAt: {
+//    type      : Date
+//  },
+//  updatedAt: {
+//    type      : Date
   }
 });
+
+Products.attachSchema(Schemas.Product);
 
 //TODO revise code to check if user is admin to allow edits (pg 137)
 Products.allow({
@@ -155,6 +153,7 @@ Products.allow({
             throwError(error.reason);
             return null;
           }
+          console.log('vendor update ran without thrown error');
         });
       } else {
         console.log('if (productID) else statement throws error');

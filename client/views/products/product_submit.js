@@ -90,13 +90,17 @@ Template.productSubmit.events({
       family        : Session.get('draftSKU'),
       title         : $(e.target).find('[name=title]').val(),
       vendor        : $(e.target).find('[name=vendor]').val(),
+      //TODO: do lookup to set this value correctly
+      vendorName    : $(e.target).find('[name=vendor]').val(),
+      productNo     : $(e.target).find('[name=productNo]').val(),
       product_type  : $(e.target).find('[name=product_type]').val(),
       season        : $(e.target).find('[name=season]').val(),
       cost          : $(e.target).find('[name=cost]').val(),
       price         : $(e.target).find('[name=price]').val(),
       userId        : user._id,
       author        : user.username,
-      createdAt     : new Date().getTime()
+      createdAt     : new Date().getTime(),
+      updatedAt     :  new Date().getTime()
     };
 
 
@@ -108,7 +112,9 @@ Template.productSubmit.events({
 //     };
 //
 //     Meteor.call('callShopifyAPI', APIRequest);
-     Meteor.call('addProduct', product, function(error, id) {
+
+// TODO: Autoform package handles this.
+/*     Meteor.call('addProduct', product, function(error, id) {
        //TODO: review error handling
         if (error) {
           console.log(error);
@@ -124,7 +130,20 @@ Template.productSubmit.events({
             Router.go('productPage', {_id: id});
           }
         }
-     });
+     });*/
+
+    Products.insert(product, function (error, result) {
+      console.log('product insert callback executed');
+      if (error) {
+        console.log('error thrown during product insert');
+        console.log(error);
+      } else {
+        console.log('productID: ', result);
+        if (Meteor.isClient) {
+          Router.go('productPage', {_id: id});
+        }
+      }
+    });
    }
 });
 
