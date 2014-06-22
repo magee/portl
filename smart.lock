@@ -12,8 +12,7 @@
       "kadira": {},
       "autocomplete": {},
       "masonrify": {},
-      "autoform": {},
-      "npm": {}
+      "autoform": {}
     },
     "packages": {
       "iron-router": {
@@ -70,11 +69,6 @@
         "git": "https://github.com/aldeed/meteor-autoform.git",
         "tag": "v0.12.0",
         "commit": "24b0284425e446f2d88760a81052eefe74a20bbf"
-      },
-      "npm": {
-        "git": "https://github.com/arunoda/meteor-npm.git",
-        "tag": "v0.2.6",
-        "commit": "177ab6118de5bf8cffb19481343d5762ff7a2aaf"
       },
       "blaze-layout": {
         "git": "https://github.com/EventedMind/blaze-layout.git",
