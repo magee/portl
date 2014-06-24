@@ -1,4 +1,4 @@
-<template name="ordersList">
+<template name="orders">
     {{ #if currentUser }}
     <h1>{{> pageTitle }}</h1>
 
@@ -13,8 +13,8 @@
             <td class="col-sm-1"> </td>
             </thead>
             <tbody>
-            {{#each products }}
-            {{> productItem }}
+            {{#each orders }}
+            <!--{{> productItem }}-->
             {{/each }}
             </tbody>
         </table>
