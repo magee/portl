@@ -71,6 +71,9 @@ Products.allow({
       } else {
         throwError(error.reason);
       }
+
+      return productId;
+
 //      Products.insert(productAttributes, function (error, result) {
 //        if (error) {
 //          throwError(error.reason);
