@@ -5,7 +5,6 @@
       "iron-router": {},
       "spin": {},
       "bootstrap-3": {},
-      "accounts-ui-bootstrap-3": {},
       "typeahead": {},
       "fontawesome4": {},
       "require": {},
@@ -29,11 +28,6 @@
         "git": "https://github.com/mangasocial/meteor-bootstrap-3.git",
         "tag": "v3.1.1-1",
         "commit": "63dd38968828bb8963636df93e9a1c45e2dfe67e"
-      },
-      "accounts-ui-bootstrap-3": {
-        "git": "https://github.com/mangasocial/meteor-accounts-ui-bootstrap-3.git",
-        "tag": "v0.3.0-1",
-        "commit": "93ffa5d0e325dc7026de89f6d90c178fa04bdd3a"
       },
       "typeahead": {
         "git": "https://github.com/sergeyt/meteor-typeahead.git",
@@ -67,8 +61,8 @@
       },
       "autoform": {
         "git": "https://github.com/aldeed/meteor-autoform.git",
-        "tag": "v0.12.0",
-        "commit": "24b0284425e446f2d88760a81052eefe74a20bbf"
+        "tag": "v0.13.0",
+        "commit": "3f294ddf3ed0acae714d5ceb8a806b25cdcd0197"
       },
       "blaze-layout": {
         "git": "https://github.com/EventedMind/blaze-layout.git",
