@@ -10,6 +10,14 @@ Meteor.publish('product', function (productID){
   return Products.find(productID);
 });
 
+Meteor.publish('orders', function(){
+  return Orders.find();
+});
+
+Meteor.publish('order', function (orderID){
+  return Orders.find(orderID);
+});
+
 Meteor.publish('variants', function (productId) {
   return Variants.find({productId: productId});
 });

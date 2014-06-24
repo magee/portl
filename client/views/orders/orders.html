@@ -1,0 +1,26 @@
+<template name="ordersList">
+    {{ #if currentUser }}
+    <h1>{{> pageTitle }}</h1>
+
+    <div class="ordersList">
+        <table class="table table-striped">
+            <thead>
+            <td class="col-sm-3">Title</td>
+            <td class="col-sm-2">Vendor</td>
+            <td class="col-sm-2">SKU</td>
+            <td class="col-sm-1 currency">Cost</td>
+            <td class="col-sm-1 currency">Price</td>
+            <td class="col-sm-1"> </td>
+            </thead>
+            <tbody>
+            {{#each products }}
+            {{> productItem }}
+            {{/each }}
+            </tbody>
+        </table>
+    </div>
+
+    {{ else }}
+    <h1>Tog + Porter Stylist Portal</h1>
+    {{/if }}
+</template>
