@@ -6,3 +6,4 @@ meteor-deploy.sh
 settings.json
 client/view/shopify*
 /**/.DS_Store
+server/shopify-config.js
