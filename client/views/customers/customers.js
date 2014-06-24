@@ -10,6 +10,3 @@ Template.customers.helpers({
     return Meteor.call('customerCount');
   }
 });
-
-Template.customers.events({
-})

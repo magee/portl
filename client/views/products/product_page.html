@@ -8,7 +8,9 @@
 -->
     <div class="product shadow1">
         <div class='col-sm-12'>
-            <h3 id="productTitle">{{title}} </h3><span id="editButtons"><a href="#" class="delete"><i class="fa fa-trash-o fa-2x"></i></a> &nbsp; <a href="{{pathFor 'productEdit'}}" class="edit"><i class="fa fa-pencil fa-2x"></i></a></span>
+            <h3 id="productTitle">{{title}} </h3>
+            <!--<span id="editButtons"><a href="#" class="delete"><i class="fa fa-trash-o fa-2x"></i></a> &nbsp; <a href="{{pathFor 'productEdit'}}" class="edit"><i class="fa fa-pencil fa-2x"></i></a></span>-->
+            <span id="editButtons"><a href="#" class="delete"><i class="fa fa-trash-o fa-2x"></i></a> &nbsp;</span>
         </div>
         <!--<div class="col-sm-2" style="text-align: right;">-->
         <!--<br />-->
@@ -29,11 +31,11 @@
         <thead>
         <td class="col-sm-1"></td>
         <td class="col-sm-2">Title</td>
-        <td class="col-sm-2">SKU</td>
+        <td class="col-sm-3">SKU</td>
         <td class="col-sm-1">Qty</td>
         <td class="col-sm-1 currency">Cost</td>
         <td class="col-sm-1 currency">Price</td>
-        <td class="col-sm-2"></td>
+        <td class="col-sm-1"></td>
         </thead>
         <tbody>
         {{#each variants }}

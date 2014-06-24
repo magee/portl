@@ -1,7 +1,8 @@
-<template name="layout">
+<template name="layout2">
     <div class="container tandp">
         <div id="header">{{> header }}</div>
-        {{> modal }}
+        <!--{{> modal }}-->
+
         <div id="content">
             {{> meteorErrors}}
             <div id="main" class="row-fluid">
@@ -10,5 +11,109 @@
         </div>
 
         <div id="footer">{{> footer }}</div>
+    </div>
+</template>
+
+
+
+<template name="layout">
+    <div class="page-container">
+        <!-- top navbar -->
+        <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="offcanvas" data-target=".sidebar-nav">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="#">Tog + Porter</a>
+                </div>
+                <div class="btn-group pull-right">
+<!--
+                    {{ #if currentUser }}
+                    <button class="btn btn-block btn-primary" id="login-buttons-logout">Sign out</button>
+                    {{ /if }}
+-->
+<!--
+                    <a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
+                        <span class="glyphicon glyphicon glyphicon-globe"></span>
+                        <span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li><a class="" href="#">FR</a>
+                        </li>
+                        <li><a class="" href="#">NL</a>
+                        </li>
+                        <li><a class="" href="#">EN</a>
+                        </li>
+                    </ul>
+-->
+                </div>
+            </div>
+
+        </div>
+        <div class="container">
+            <div class="row row-offcanvas row-offcanvas-left">
+                <!-- sidebar -->
+                <div class="col-xs-3 col-sm-2 sidebar-offcanvas" id="sidebar" role="navigation">
+                    <ul class="nav">
+                        <li class="active"><a class="" href="#">Home</a></li>
+                        <li><a class="" href="{{pathFor 'productsList'}}">Products</a></li>
+                        <li><a class="" href="{{ pathFor 'customers' }}">Clients</a></li>
+                        <li><a class="" href="#">Orders</a></li>
+                        <li><a class="" href="{{ pathFor 'calendar' }}">Calendar</a></li>
+                        <li><a class="" href="#">Users</a></li>
+                        <!--<li><a class="" id="login" href="#">Sign In</a></li>-->
+
+                    </ul>
+                    <div class="logoutButton">
+                        {{ #if currentUser }}
+                        <button class="btn btn-block btn-primary" id="login-buttons-logout">Sign out</button>
+                        {{ /if }}
+                    </div>
+                </div>
+                <!-- main area -->
+                <div class="col-xs-12 col-sm-9">
+                    {{ #if currentUser }}
+                    {{> yield}}
+                    {{ else }}
+                    {{> tandp_login }}
+                    {{ /if }}
+                </div>
+            </div>
+            <div id="myModal" class="modal fade" tabindex="-1" role="dialog">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal">×</button>
+                            <h3 class="modal-title"></h3>
+                        </div>
+                        <div class="modal-body">
+                        </div>
+                        <div class="modal-footer">
+                            <button class="btn btn-default" data-dismiss="modal">Close</button>  <button class="btn btn-primary login-button login-button-form-submit" data-dismiss="modal" id="login-buttons-password">Submit</button>
+                        </div>
+                    </div>
+
+                </div>
+                <!-- /.col-xs-12 main -->
+            </div>
+            <!--/.row-->
+        </div>
+        <!--/.container-->
+    </div>
+    <!--/.page-container-->
+
+</template>
+
+<template name="tandp_login">
+    <div class="loginregion">
+        <form id="login-form" action="action">
+            <div>
+                <input type="email" id="login-email" />
+                <input type="password" id="login-password" />
+                <input type="submit" id="login-button" value="Sign in" />
+            </div>
+        </form>
     </div>
 </template>

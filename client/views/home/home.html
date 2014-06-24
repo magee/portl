@@ -1,33 +1,7 @@
 <template name="home">
     {{ #if currentUser }}
-    <div class="container-fixed menuBox col-sm-10 col-sm-offset-1">
-        <div class="graphical-menu">
-            <div class="row">
-                <div class="menuItem">
-                    <a href="{{pathFor 'productsList'}}" data-toggle="tooltip" title="Portal product inventory (not sync'd with Shopify yet)"><i class="fa fa-tags fa-5x"></i><br />Products</a>
-                </div>
-                <div class="menuItem">
-                    <a href="{{pathFor 'calendar'}}"><i class="fa fa-calendar fa-5x"></i><br />Calendar</a>
-                </div>
-                <div class="menuItem">
-                    <a href="{{pathFor 'customers'}}"><i class="fa fa-users fa-5x"></i><br />Clients</a>
-                </div>
-                <div class="menuItem">
-                    <a href="#"><i class="fa fa-dollar fa-5x"></i><br />Orders</a>
-                </div>
-                <div class="menuItem">
-                    <a href="#"><i class="fa fa-users fa-5x"></i><br />Users</a>
-                </div>
-                <div class="menuItem">
-                    <a
-                       data-toggle="modal"
-                       data-target="#modal" href="#"><i class="fa fa-tags fa-5x"></i><br />Modal Test</a>
-                </div>
-            </div>
-        </div>
-    </div>
+        <h2>Tog + Porter Staff Logged In</h2>
     {{ else }}
-    <h2>Tog + Porter Staff Portal</h2>
+        <h2>Tog + Porter Staff Portal</h2>
     {{/if }}
-
 </template>

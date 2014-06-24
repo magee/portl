@@ -1,7 +1,7 @@
 /**
  * Created by mageemooney on 6/12/14.
  */
-//Meteor.subscribe('customers');
+
 var recordCounter = 0;
 
 Template.customer.rendered = function () {
@@ -21,6 +21,6 @@ Template.customer.helpers({
 Template.customer.events({
   'click .activate': function() {
     Session.set('customerEmail', this.shopifyRecord.email);
-    console.log(Meteor.user().emails[0].address);
+
   }
-})
+});
