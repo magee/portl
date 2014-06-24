@@ -2,10 +2,6 @@
  * Created by mageemooney on 5/4/14.
  */
 
-Meteor.autorun(function(){
-  Meteor.subscribe('products');
-});
-
 Template.productsList.helpers({
   products: function() {
     return Products.find({});

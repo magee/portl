@@ -30,24 +30,15 @@
                     <a class="navbar-brand" href="#">Tog + Porter</a>
                 </div>
                 <div class="btn-group pull-right">
-<!--
-                    {{ #if currentUser }}
-                    <button class="btn btn-block btn-primary" id="login-buttons-logout">Sign out</button>
-                    {{ /if }}
--->
-<!--
-                    <a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
-                        <span class="glyphicon glyphicon glyphicon-globe"></span>
-                        <span class="caret"></span></a>
-                    <ul class="dropdown-menu">
-                        <li><a class="" href="#">FR</a>
-                        </li>
-                        <li><a class="" href="#">NL</a>
-                        </li>
-                        <li><a class="" href="#">EN</a>
+                    <ul class="nav navbar-nav navbar-right">
+                        <li class="dropdown dropdown-toggle" data-toggle="dropdown">{{> loginButtons }}</li>
+                        <li class="dropdown">
+                            <!--<a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <b class="caret"></b></a>-->
+                            <ul class="nav pull-right dropdown-menu">
+                                <li>{{> loginButtons }}</li>
+                            </ul>
                         </li>
                     </ul>
--->
                 </div>
             </div>
 
@@ -63,21 +54,12 @@
                         <li><a class="" href="#">Orders</a></li>
                         <li><a class="" href="{{ pathFor 'calendar' }}">Calendar</a></li>
                         <li><a class="" href="#">Users</a></li>
-                        <!--<li><a class="" id="login" href="#">Sign In</a></li>-->
-
                     </ul>
-                    <div class="logoutButton">
-                        {{ #if currentUser }}
-                        <button class="btn btn-block btn-primary" id="login-buttons-logout">Sign out</button>
-                        {{ /if }}
-                    </div>
                 </div>
                 <!-- main area -->
                 <div class="col-xs-12 col-sm-9">
                     {{ #if currentUser }}
-                    {{> yield}}
-                    {{ else }}
-                    {{> tandp_login }}
+                        {{> yield}}
                     {{ /if }}
                 </div>
             </div>
@@ -106,14 +88,3 @@
 
 </template>
 
-<template name="tandp_login">
-    <div class="loginregion">
-        <form id="login-form" action="action">
-            <div>
-                <input type="email" id="login-email" />
-                <input type="password" id="login-password" />
-                <input type="submit" id="login-button" value="Sign in" />
-            </div>
-        </form>
-    </div>
-</template>
