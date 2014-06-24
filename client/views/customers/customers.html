@@ -1,24 +1,27 @@
 <template name="customers">
-    <div class="col-sm-10 col-sm-offset-1 ">
-        <table class="table table-striped">
-            <thead>
-                <td class="col-sm-1">#</td>
-                <td class="col-sm-2">name</td>
-                <td class="center col-sm-1">Shopify activated?</td>
-                <td class="col-sm-3">Shopify email</td>
-                <!--<td class="center col-sm-1">Portal activated?</td>-->
-                <td class="center col-sm-1"># of orders*</td>
-                <td class="col-sm-1 currency">total spent</td>
-                <!--<td class="col-sm-2"></td>-->
-            </thead>
-            <tbody>
-                {{#each customers}}
-                {{> customer }}
-                {{/each}}
-            </tbody>
-        </table>
-        <div>* per Shopify.  Lettuce does not have an API so we cannot pull final order data from that system.</div>
-    </div>
+    {{ #if currentUser }}
+    <h1>{{> pageTitle }}</h1>
+        <div class="col-sm-10 col-sm-offset-1 ">
+            <table class="table table-striped">
+                <thead>
+                    <td class="col-sm-1">#</td>
+                    <td class="col-sm-2">name</td>
+                    <td class="center col-sm-1">Shopify activated?</td>
+                    <td class="col-sm-3">Shopify email</td>
+                    <!--<td class="center col-sm-1">Portal activated?</td>-->
+                    <td class="center col-sm-1"># of orders*</td>
+                    <td class="col-sm-1 currency">total spent</td>
+                    <!--<td class="col-sm-2"></td>-->
+                </thead>
+                <tbody>
+                    {{#each customers}}
+                    {{> customer }}
+                    {{/each}}
+                </tbody>
+            </table>
+            <div>* per Shopify.  Lettuce does not have an API so we cannot pull final order data from that system.</div>
+        </div>
+    {{ /if }}
 </template>
 
 <!--<template name="customer">-->
