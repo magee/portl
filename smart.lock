@@ -2,7 +2,6 @@
   "meteor": {},
   "dependencies": {
     "basePackages": {
-      "iron-router": {},
       "spin": {},
       "bootstrap-3": {},
       "typeahead": {},
@@ -15,11 +14,6 @@
       "accounts-ui-bootstrap-3-blaze": {}
     },
     "packages": {
-      "iron-router": {
-        "git": "https://github.com/EventedMind/iron-router.git",
-        "tag": "v0.7.1",
-        "commit": "d1ffb3f06ea4c112132b030f2eb1a70b81675ecb"
-      },
       "spin": {
         "git": "https://github.com/SachaG/meteor-spin.git",
         "tag": "v0.2.2",
@@ -62,18 +56,13 @@
       },
       "autoform": {
         "git": "https://github.com/aldeed/meteor-autoform.git",
-        "tag": "v0.13.0",
-        "commit": "3f294ddf3ed0acae714d5ceb8a806b25cdcd0197"
+        "tag": "v0.13.5",
+        "commit": "27dd5b912eeba687b228a6a7c2c14eef63b12cca"
       },
       "accounts-ui-bootstrap-3-blaze": {
         "git": "https://github.com/rajit/meteor-accounts-ui-bootstrap-3.git",
         "tag": "v0.3.7",
         "commit": "a40b15f4b6213040accec10df97a7793e3a25225"
-      },
-      "blaze-layout": {
-        "git": "https://github.com/EventedMind/blaze-layout.git",
-        "tag": "v0.2.4",
-        "commit": "b40e9b0612329288d75cf52ad14a7da64bb8618f"
       },
       "caret-position": {
         "git": "https://github.com/StockBase/meteor-caret-position.git",
@@ -87,8 +76,8 @@
       },
       "collection2": {
         "git": "https://github.com/aldeed/meteor-collection2.git",
-        "tag": "v0.4.1",
-        "commit": "a9ffc9b285c3af8ad631f9cda4851b0ffc30c5ce"
+        "tag": "v0.4.2",
+        "commit": "4ff4b707bec8be434919730bf101325adb215444"
       },
       "moment": {
         "git": "https://github.com/acreeger/meteor-moment.git",
