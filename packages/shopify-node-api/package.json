@@ -1,0 +1,41 @@
+{
+  "name": "shopify-node-api",
+  "version": "1.2.3",
+  "description": "OAuth2 Module for Shopify API",
+  "main": "./lib/shopify",
+  "scripts": {
+    "test": "make test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/sinechris/shopify-node-api.git"
+  },
+  "keywords": [
+    "Shopify",
+    "api",
+    "node.js",
+    "oauth2"
+  ],
+  "author": {
+    "name": "Chris Gregory",
+    "email": "chris@sinelabs.com",
+    "url": "http://sinelabs.com/"
+  },
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/sinechris/shopify-node-api/issues"
+  },
+  "homepage": "https://github.com/sinechris/shopify-node-api",
+  "dependencies": {
+    "MD5": "^1.2.1"
+  },
+  "devDependencies": {
+    "mocha": "^1.20.1",
+    "chai": "^1.9.1",
+    "nock": "^0.34.1"
+  },
+  "readme": "shopify-node-api\n================\n\nOAuth2 Module for Shopify API\n\n## Installation\n\n### [Node.js](http://nodejs.org/):\n\n```\nnpm install shopify-node-api\n```\n\n## Setup\n\n~~~\nvar shopifyAPI = require('shopify-node-api');\n\nvar Shopify = new shopifyAPI({\n                shop: 'MYSHOP', // MYSHOP.myshopify.com\n                shopify_api_key: '', // Your API key\n                shopify_shared_secret: '', // Your Shared Secret\n                shopify_scope: 'write_products',\n                redirect_uri: 'http://localhost:3000/finish_auth'\n            });\n\n~~~\n\n### CAUTION!!!\n\nIf no config object is passed into the module upon initialization, an error will be thrown!\n\n~~~\nvar Shopify = new shopifyAPI(); // No config object passed in\n~~~\n\nwill throw an error like:\n\n~~~\n> Error: ShopifyAPI module expects a config object\n> Please see documentation at: https://github.com/sinechris/shopify-node-api\n~~~\n\n## Usage\n\n~~~\n\n// Building the authentication url\n\nvar auth_url = Shopify.buildAuthURL();\n\n// Assuming you are using the express framework\n// you can redirect the user automatically like so\nres.redirect(auth_url);\n\n~~~\n\n\n## Exchanging the temporary token for a permanent one\n\nAfter the user visits the authenticaion url they will be redirected to the location you specified in the configuration redirect_url parameter.\n\nShopify will send along some query parameters including: code (your temporary token), signature, shop and timestamp. This module will verify the authenticity of the request from shopify as outlined here in the [Shopify OAuth Docs](http://docs.shopify.com/api/tutorials/oauth)\n\n~~~\n\n// Again assuming you are using the express framework\n\napp.get('/finish_auth', function(req, res){\n\n  var Shopify = new shopifyAPI(config), // You need to pass in your config here\n    query_params = req.query;\n\n  Shopify.exchange_temporary_token(query_params, function(err, data){\n    // This will return successful if the request was authentic from Shopify\n    // Otherwise err will be non-null.\n    // The module will automatically update your config with the new access token\n    // It is also available here as data['access_token']\n  });\n\n});\n\n~~~\n\n\n## Making requests\n\nThis module supports GET, POST, PUT and DELETE rest verbs. Each request will return any errors, the data in JSON formation and any headers returned by the request.\n\nAn important header to take note of is **'http_x_shopify_shop_api_call_limit'**. This will let you know if you are getting close to reaching [Shopify's API call limit](http://docs.shopify.com/api/tutorials/learning-to-respect-the-api-call-limit).\n\n### API limits\n\n~~~\nfunction callback(err, data, headers) {\n  var api_limit = headers['http_x_shopify_shop_api_call_limit'];\n  console.log( api_limit ); // \"1/40\"\n}\n~~~\n\n### GET\n\n~~~\nShopify.get('/admin/products.json', function(err, data, headers){\n    console.log(data); // Data contains product json information\n    console.log(headers); // Headers returned from request\n});\n\n~~~\n\n### POST\n\n~~~\nvar post_data = {\n  \"product\": {\n    \"title\": \"Burton Custom Freestlye 151\",\n    \"body_html\": \"<strong>Good snowboard!</strong>\",\n    \"vendor\": \"Burton\",\n    \"product_type\": \"Snowboard\",\n    \"variants\": [\n      {\n        \"option1\": \"First\",\n        \"price\": \"10.00\",\n        \"sku\": 123\n      },\n      {\n        \"option1\": \"Second\",\n        \"price\": \"20.00\",\n        \"sku\": \"123\"\n      }\n    ]\n  }\n}\n\nShopify.post('/admin/products/1234567.json', post_data, function(err, data, headers){\n  console.log(data);\n});\n~~~\n\n### PUT\n\n~~~\nvar put_data = {\n  \"product\": {\n    \"body_html\": \"<strong>Updated!</strong>\"\n  }\n}\n\nShopify.put('/admin/products/1234567.json', put_data, function(err, data, headers){\n  console.log(data);\n});\n~~~\n\n### DELETE\n\n~~~\nShopify.delete('/admin/products/1234567.json', function(err, data, headers){\n    console.log(data);\n});\n~~~\n\n## OPTIONS\n\n\n### Verbose Mode\n\nBy default, shopify-node-api will automatically console.log all headers and responses. To suppress these messages, simply set verbose to false.\n\n~~~\nvar config = {\n  ...\n  verbose: false\n}\n~~~\n\n\n# Testing\n\n~~~\nnpm test\n~~~\n\n\n# Contributing\n\nShopify has been kind enough to list this module on their [Official Documentation](http://docs.shopify.com/api/libraries/node). As such it is important that this module remain as bug free and up to date as possible in order to make the experience with node.js/Shopify as seamless as possible.\n\nSinelabs will continue to make updates as often as possible but we are more than happy to review any feature requests and will be accepting pull requests as well.\n",
+  "readmeFilename": "README.md",
+  "_id": "shopify-node-api@1.2.3",
+  "_from": "shopify-node-api@"
+}
