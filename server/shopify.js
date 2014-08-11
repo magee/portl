@@ -4,9 +4,14 @@
 var DATA_CHUNK_SIZE = 250;
 var shopifyURIRoot = 'https://' + SHOPIFY_APIKEY + ':' + SHOPIFY_PWD + '@' + SHOPIFY_HOST;
 var shopifyAuthCreds = SHOPIFY_APIKEY + ':' + SHOPIFY_PWD;
+var syncCustomers = true;
+var syncProducts = false;
+var syncOrders = false;
 
 Meteor.publish('customers', function () {
-//  getShopifyCustomers();
+  if (syncCustomers) {
+    getShopifyCustomers();
+  }
   return Customers.find();
 });
 
@@ -17,10 +22,10 @@ var getCountOfCustomers = function () {
 };
 
 var getShopifyCustomers = function () {
+  //TODO: requires debugging.  Feature not in production.
+  //TODO: why does this code run twice after loading page? How many times does meteor.subscribe customers get called?
 
   Customers.remove({});
-
-  //TODO: why does this code run twice after loading page? How many times does meteor.subscribe customers get called?
 
   var customerChunkSize = DATA_CHUNK_SIZE || 250;  // Shopify has a max of 250 records returned in a single API call
   var customerCount = getCountOfCustomers();
@@ -56,8 +61,19 @@ var getShopifyCustomers = function () {
   }
 };
 
-var getShopifyData = function (location) {
+var getShopifyOrders = function() {
+  var uri='/admin/orders';
+  var orders = getShopifyData(uri).orders;
 
+  for (var j = 0; j < orders.length; j++) {
+    Orders.insert(
+      {shopifyID: orders[j].id, shopifyRecord: orders[j]}
+    );
+    lastIDPulled = orders[j].id;
+  }
+};
+
+var getShopifyData = function (location) {
   var URI = shopifyURIRoot + location;
   var result = Meteor.http.call('GET', URI, {
     headers: {
@@ -68,10 +84,11 @@ var getShopifyData = function (location) {
   });
 
   if (result.statusCode==200) {
-   var respJson = JSON.parse(result.content);
+    var respJson = JSON.parse(result.content);
   } else {
     throw new Meteor.Error('');
   }
 
   return respJson;
 };
+
