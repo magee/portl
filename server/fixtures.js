@@ -13,7 +13,8 @@ Meteor.startup(function () {
   sync.seasons = (Seasons.find().count() === 0);
   sync.productTypes = (ProductTypes.find().count() === 0);
 
-  sync.vendors = true;
+//  sync.vendors = false;
+
 
 //  if (sync.seasons) {
     if (true) {
@@ -324,7 +325,8 @@ Meteor.startup(function () {
 //    Vendors.insert({code:'ZAD', vendor: 'Zad', active: true, userId: 'kxaTiFNwQL2MhugFQ', highestProductNo: 7, author: 'magee', createdAt: createdDateValue});
 //    Vendors.insert({code:'ZENNA', vendor: 'Zenana', active: true, userId: 'kxaTiFNwQL2MhugFQ', highestProductNo: 1, author: 'magee', createdAt: createdDateValue});
 //    Vendors.insert({code:'ZGZG', vendor: 'ZigZag', active: true, userId: 'kxaTiFNwQL2MhugFQ', highestProductNo: 1, author: 'magee', createdAt: createdDateValue});
-//    Vendors.insert({code:'ZOEKR', vendor: 'Zoe Kratzmann', active: true, userId: 'kxaTiFNwQL2MhugFQ', highestProductNo: 1, author: 'magee', createdAt: createdDateValue});  }
+//    Vendors.insert({code:'ZOEKR', vendor: 'Zoe Kratzmann', active: true, userId: 'kxaTiFNwQL2MhugFQ', highestProductNo: 1, author: 'magee', createdAt: createdDateValue});
+}
 
   if (sync.colors) {
 
