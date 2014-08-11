@@ -69,7 +69,6 @@ Meteor.startup(function () {
     Vendors.insert({code:'MSKLL', vendor: 'M. Haskell', active: true, userId: 'kxaTiFNwQL2MhugFQ', highestProductNo: 2, author: 'magee', createdAt: createdDateValue});
     Vendors.insert({code:'LCKY', vendor: 'Lucky', active: true, userId: 'kxaTiFNwQL2MhugFQ', highestProductNo: 1, author: 'magee', createdAt: createdDateValue});
     Vendors.insert({code:'AMIY', vendor: 'Macy\'s', active: true, userId: 'kxaTiFNwQL2MhugFQ', highestProductNo: 4, author: 'magee', createdAt: createdDateValue});
-
 //    Vendors.insert({code:'90021', vendor: '90021', active: true, userId: 'kxaTiFNwQL2MhugFQ', highestProductNo: 10, author: 'magee', createdAt: createdDateValue});
 //    Vendors.insert({code:'UNK', vendor: '[vendor unknown]', active: true, userId: 'kxaTiFNwQL2MhugFQ', highestProductNo: 14, author: 'magee', createdAt: createdDateValue});
 //    Vendors.insert({code:'14UNI', vendor: '14th Union', active: true, userId: 'kxaTiFNwQL2MhugFQ', highestProductNo: 1, author: 'magee', createdAt: createdDateValue});
