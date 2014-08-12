@@ -111,8 +111,11 @@ Products.allow({
     },
 
     getLastProductNo: function (vendor) {
-      var result = Vendors.findOne({code: vendor});
-      return result.highestProductNo;
+      return Vendors.findOne({vendor: vendor}).highestProductNo || '';
+    },
+
+    getVendorCode:    function(vendor) {
+      return Vendors.findOne({vendor: vendor}).code || '';
     }
   });
 //}

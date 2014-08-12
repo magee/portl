@@ -6,6 +6,10 @@ Template.productSubmit.helpers({
     return Vendors.find({});
   },
 
+  answer: function() {
+    return Session.get('vendor');
+  },
+
   seasons: function () {
     Meteor.call('getSeasons', function(error, result) {
       if (error) {
@@ -42,7 +46,7 @@ Template.vendor.settings = function() {
     rules: [
       {
         collection: Vendors,
-        field: "code",
+        field: "vendor",
         template: Template.vendorItem,
         noMatchTemplate: Template.noVendorFound
       }
@@ -65,8 +69,18 @@ Template.productSubmit.events({
 
   'blur #vendor': function (e, template) {
     e.preventDefault();
-    Session.set('vendorCode', template.find('#vendor').value);
-    Meteor.call('getLastProductNo', Session.get('vendorCode'), function(error, result){
+//    Session.set('vendor', template.find('#vendor').value);
+    var selectedVendor = template.find('#vendor').value;
+
+    Meteor.call('getVendorCode', selectedVendor, function(error, result){
+      if (error) {
+        console.log("error");
+      } else {
+        Session.set('vendorCode', result);
+      }
+    });
+
+    Meteor.call('getLastProductNo', selectedVendor, function(error, result){
       if (error) {
         console.log("error");
       } else {
