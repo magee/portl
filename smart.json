@@ -9,6 +9,9 @@
     "autocomplete": {},
     "masonrify": {},
     "autoform": {},
+    "meds": {},
+    "npm": {},
+    "iron-router": {},
     "accounts-ui-bootstrap-3-blaze": {}
   }
 }
