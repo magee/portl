@@ -12,6 +12,7 @@
     "meds": {},
     "npm": {},
     "iron-router": {},
-    "accounts-ui-bootstrap-3-blaze": {}
+    "accounts-ui-bootstrap-3-blaze": {},
+    "lodash": {}
   }
 }
